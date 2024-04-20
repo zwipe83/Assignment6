@@ -1,6 +1,6 @@
 ﻿namespace Assignment6
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
@@ -51,6 +52,8 @@
             lstTasks = new ListView();
             btnChange = new Button();
             btnDelete = new Button();
+            lblTimer = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             menuStrip1.SuspendLayout();
             grpTaskList.SuspendLayout();
             SuspendLayout();
@@ -254,11 +257,29 @@
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             // 
+            // lblTimer
+            // 
+            lblTimer.BorderStyle = BorderStyle.FixedSingle;
+            lblTimer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTimer.Location = new Point(982, 517);
+            lblTimer.Name = "lblTimer";
+            lblTimer.Size = new Size(82, 23);
+            lblTimer.TabIndex = 8;
+            lblTimer.Text = "00:00:00";
+            lblTimer.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1082, 556);
+            Controls.Add(lblTimer);
             Controls.Add(btnDelete);
             Controls.Add(btnChange);
             Controls.Add(grpTaskList);
@@ -306,5 +327,7 @@
         private Label lblDescription;
         private Button btnChange;
         private Button btnDelete;
+        private Label lblTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }
