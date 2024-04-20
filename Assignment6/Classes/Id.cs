@@ -10,9 +10,15 @@ namespace Assignment6.Classes
     internal class Id
     {
         #region Fields
+        /// <summary>
+        /// 
+        /// </summary>
         private Guid _taskId;
         #endregion
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public Guid TaskId
         {
             get => _taskId;
@@ -26,15 +32,26 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
-        public Id() :this(Guid.NewGuid())
+        /// <summary>
+        /// 
+        /// </summary>
+        public Id() : this(Guid.NewGuid())
         {
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         public Id(Guid id)
         {
             TaskId = id;
         }
         #endregion
         #region Overridden Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return TaskId.ToString();

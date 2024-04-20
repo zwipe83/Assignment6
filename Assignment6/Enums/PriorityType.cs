@@ -9,6 +9,9 @@ using System.ComponentModel;
 
 namespace Assignment6.Enums
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum PriorityType
     {
         [Description("Very Important")]

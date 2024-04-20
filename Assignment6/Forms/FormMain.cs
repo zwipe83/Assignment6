@@ -55,6 +55,14 @@ namespace Assignment6
             SetPriorityDescriptions(priorityDescriptions, cmbPriority);
 
             cmbPriority.SelectedIndex = (int)defaultPriority;
+
+            lstTasks.View = View.Details;
+
+            lstTasks.Columns.Add("Date", 100, HorizontalAlignment.Left);
+            lstTasks.Columns.Add("Time", 100, HorizontalAlignment.Left);
+            lstTasks.Columns.Add("Priority", 150, HorizontalAlignment.Left);
+            lstTasks.Columns.Add("Description", 550, HorizontalAlignment.Left);
+
         }
         /// <summary>
         /// Gets priority descriptions as <see cref="string"/> from Enum of type <see cref="PriorityType"/>
@@ -96,6 +104,31 @@ namespace Assignment6
             Assignment6.Classes.Task task = new Assignment6.Classes.Task(id, date, time, priority, description);
 
             TaskManager.AddNew(task);
+
+            UpdateListView();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpdateListView()
+        {
+            lstTasks.Items.Clear();
+            foreach (Assignment6.Classes.Task task in TaskManager.TaskList)
+            {
+                ListViewItem item = new ListViewItem(task.Date.ToString()); // Create a new ListViewItem with the text for the first column
+                item.SubItems.Add(task.Time.ToString()); // Add a subitem for the second column
+                item.SubItems.Add(task.Priority.ToString()); // Add a subitem for the third column
+                item.SubItems.Add(task.Description.ToString()); // Add a subitem for the fourth column
+
+                //lstTasks.Items.Add(item); // Add the ListViewItem to the ListView
+
+                string[] row = { task.Date.ToString(), task.Time.ToString(), task.Priority.ToString(), task.Description.ToString() };
+                var listViewItem = new ListViewItem(row);
+                listViewItem.Tag = task.Id;
+                lstTasks.Items.Add(listViewItem);
+
+                //lstTasks.Items.Add(new ListViewItem(new string[] { task.ToString() }));
+            }
         }
         /// <summary>
         /// 
@@ -115,5 +148,42 @@ namespace Assignment6
             return DateTime.Now.ToString(format);
         }
         #endregion
+
+        private void dateTimePicker1_MouseEnter(object sender, EventArgs e)
+        {
+            toolTipDateTime.Show("Click to open calender, write a time", this);
+        }
+
+        private void dateTimePicker1_MouseLeave(object sender, EventArgs e)
+        {
+            toolTipDateTime.Hide(this);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("About...");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            if(lstTasks.SelectedItems.Count == 0)
+            { 
+                return; 
+            }
+
+            Id id = (Id)lstTasks.SelectedItems[0].Tag;
+
+            TaskManager.Change(id);
+        }
+
+        private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var dummy = 0;
+        }
     }
 }

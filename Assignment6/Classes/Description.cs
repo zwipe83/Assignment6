@@ -10,9 +10,15 @@ namespace Assignment6.Classes
     internal class Description
     {
         #region Fields
+        /// <summary>
+        /// 
+        /// </summary>
         private string _taskDescription;
         #endregion
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public string TaskDescription
         {
             get => _taskDescription;
@@ -26,15 +32,26 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
+        /// <summary>
+        /// 
+        /// </summary>
         public Description() : this(string.Empty)
         {
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="description"></param>
         public Description(string description)
         {
             TaskDescription = description;
         }
         #endregion
         #region Overridden Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return TaskDescription.ToString();

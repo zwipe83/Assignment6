@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Assignment6.Classes.Date">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAGAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Date.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.Id">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Classes\Id.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.Time">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Classes\Time.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.Priority">
+    <Position X="2.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Priority.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.Description">
+    <Position X="2.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Description.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.Task">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAAAAAgAAAEBABAAAAAAAAAAAABAAAAAAAAAQA=</HashCode>
+      <FileName>Classes\Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.TaskManager">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAEBAAAAEAAAAAAAAAAEAICAAAAAAAAAAAAg=</HashCode>
+      <FileName>Classes\TaskManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.FormMain">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQSaBAAQQCAQAAATAQDCQA0KAJAAJAAEAgAAAYAkAAQ=</HashCode>
+      <FileName>Forms\FormMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Assignment6.Enums.PriorityType">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAgAAQIAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\PriorityType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

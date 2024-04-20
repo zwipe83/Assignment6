@@ -10,9 +10,15 @@ namespace Assignment6.Classes
     internal class Time
     {
         #region Fields
+        /// <summary>
+        /// 
+        /// </summary>
         private TimeSpan _taskTime;
         #endregion
         #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public TimeSpan TaskTime
         {
             get => _taskTime;
@@ -26,18 +32,29 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
+        /// <summary>
+        /// 
+        /// </summary>
         public Time() : this(new TimeSpan())
         {
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="time"></param>
         public Time(TimeSpan time)
         {
             TaskTime = time;
         }
         #endregion
         #region Overridden Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return TaskTime.ToString("HH:mm:ss");
+            return $"{TaskTime.Hours}:{TaskTime.Minutes}:{TaskTime.Seconds}";
         }
         #endregion
     }

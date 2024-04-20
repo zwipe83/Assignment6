@@ -45,15 +45,12 @@
             txtToDo = new TextBox();
             btnAddTask = new Button();
             grpTaskList = new GroupBox();
-            lblDescription = new Label();
-            lblPriorityList = new Label();
-            lblTime = new Label();
-            lblDate = new Label();
             lstTasks = new ListView();
             btnChange = new Button();
             btnDelete = new Button();
             lblTimer = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            toolTipDateTime = new ToolTip(components);
             menuStrip1.SuspendLayout();
             grpTaskList.SuspendLayout();
             SuspendLayout();
@@ -97,6 +94,7 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(148, 22);
             exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
@@ -108,8 +106,9 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(107, 22);
-            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Size = new Size(116, 22);
+            aboutToolStripMenuItem.Text = "About...";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // lblDateAndTime
             // 
@@ -137,9 +136,10 @@
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.Location = new Point(148, 42);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.ShowUpDown = true;
             dateTimePicker1.Size = new Size(319, 29);
             dateTimePicker1.TabIndex = 2;
+            dateTimePicker1.MouseEnter += dateTimePicker1_MouseEnter;
+            dateTimePicker1.MouseLeave += dateTimePicker1_MouseLeave;
             // 
             // lblPriority
             // 
@@ -181,10 +181,6 @@
             // 
             // grpTaskList
             // 
-            grpTaskList.Controls.Add(lblDescription);
-            grpTaskList.Controls.Add(lblPriorityList);
-            grpTaskList.Controls.Add(lblTime);
-            grpTaskList.Controls.Add(lblDate);
             grpTaskList.Controls.Add(lstTasks);
             grpTaskList.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             grpTaskList.Location = new Point(12, 161);
@@ -194,49 +190,15 @@
             grpTaskList.TabStop = false;
             grpTaskList.Text = "To Do";
             // 
-            // lblDescription
-            // 
-            lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(589, 36);
-            lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(89, 21);
-            lblDescription.TabIndex = 1;
-            lblDescription.Text = "Description";
-            // 
-            // lblPriorityList
-            // 
-            lblPriorityList.AutoSize = true;
-            lblPriorityList.Location = new Point(354, 36);
-            lblPriorityList.Name = "lblPriorityList";
-            lblPriorityList.Size = new Size(61, 21);
-            lblPriorityList.TabIndex = 1;
-            lblPriorityList.Text = "Priority";
-            // 
-            // lblTime
-            // 
-            lblTime.AutoSize = true;
-            lblTime.Location = new Point(190, 36);
-            lblTime.Name = "lblTime";
-            lblTime.Size = new Size(44, 21);
-            lblTime.TabIndex = 1;
-            lblTime.Text = "Time";
-            // 
-            // lblDate
-            // 
-            lblDate.AutoSize = true;
-            lblDate.Location = new Point(30, 36);
-            lblDate.Name = "lblDate";
-            lblDate.Size = new Size(42, 21);
-            lblDate.TabIndex = 1;
-            lblDate.Text = "Date";
-            // 
             // lstTasks
             // 
-            lstTasks.Location = new Point(6, 60);
+            lstTasks.FullRowSelect = true;
+            lstTasks.Location = new Point(6, 28);
             lstTasks.Name = "lstTasks";
-            lstTasks.Size = new Size(1046, 282);
+            lstTasks.Size = new Size(1046, 314);
             lstTasks.TabIndex = 0;
             lstTasks.UseCompatibleStateImageBehavior = false;
+            lstTasks.SelectedIndexChanged += lstTasks_SelectedIndexChanged;
             // 
             // btnChange
             // 
@@ -247,6 +209,7 @@
             btnChange.TabIndex = 7;
             btnChange.Text = "Change";
             btnChange.UseVisualStyleBackColor = true;
+            btnChange.Click += btnChange_Click;
             // 
             // btnDelete
             // 
@@ -275,6 +238,12 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // toolTipDateTime
+            // 
+            toolTipDateTime.AutomaticDelay = 0;
+            toolTipDateTime.ShowAlways = true;
+            toolTipDateTime.UseAnimation = false;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -298,7 +267,6 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             grpTaskList.ResumeLayout(false);
-            grpTaskList.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -322,13 +290,10 @@
         private Button btnAddTask;
         private GroupBox grpTaskList;
         private ListView lstTasks;
-        private Label lblDate;
-        private Label lblTime;
-        private Label lblPriorityList;
-        private Label lblDescription;
         private Button btnChange;
         private Button btnDelete;
         private Label lblTimer;
         private System.Windows.Forms.Timer timer1;
+        private ToolTip toolTipDateTime;
     }
 }
