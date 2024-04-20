@@ -1,3 +1,10 @@
+/// <summary>
+/// Filename: Program.cs
+/// Created on: 2024-04-20 00:00:00
+/// Author: Samuel Jeffman
+/// </summary>
+/// 
+
 namespace Assignment6
 {
     internal static class Program
@@ -11,7 +18,7 @@ namespace Assignment6
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new FormMain());
         }
     }
 }

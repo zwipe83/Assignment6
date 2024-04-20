@@ -137,6 +137,7 @@
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
             dateTimePicker1.Location = new Point(148, 42);
             dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.ShowUpDown = true;
             dateTimePicker1.Size = new Size(319, 29);
             dateTimePicker1.TabIndex = 2;
             // 
@@ -274,7 +275,7 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // Form1
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -292,7 +293,7 @@
             Controls.Add(lblDateAndTime);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
+            Name = "FormMain";
             Text = "Reminder application by Samuel Jeffman";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
