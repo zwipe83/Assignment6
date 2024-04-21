@@ -45,14 +45,14 @@
   <Class Name="Assignment6.Classes.TaskManager">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAEBAAAAEAAAAAAAAAAEAICAAAAAAAAAAAAg=</HashCode>
+      <HashCode>AAAAQAAgAEBAAQAEAAAAAAAAAAEAICgAAAAAAAAEAAg=</HashCode>
       <FileName>Classes\TaskManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment6.FormMain">
     <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BQSaBAAQQCAQAAATAQDCQA0KAJAAJAAEAgAAAYAkAAQ=</HashCode>
+      <HashCode>BQSKBQAQQCAQAAATAQDCQAkKApgAJAQAAkAIA4AmQQQ=</HashCode>
       <FileName>Forms\FormMain.cs</FileName>
     </TypeIdentifier>
   </Class>

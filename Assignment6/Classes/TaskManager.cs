@@ -4,9 +4,11 @@
 /// Author: Samuel Jeffman
 /// </summary>
 /// 
-
 namespace Assignment6.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class TaskManager
     {
         #region Fields
@@ -115,6 +117,43 @@ namespace Assignment6.Classes
 
             return null;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        public void SaveToFile(File file)
+        {
+            FileManager fileManager = new FileManager();
+            fileManager.SaveTaskListToFile(file, TaskList);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        public void ReadFromFile(File file)
+        {
+            FileManager filemanager = new FileManager();
+            filemanager.ReadTaskListFromFile(file, TaskList);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        public void SaveToJsonFile(File file)
+        {
+            FileManager fileManager = new FileManager();
+            fileManager.SaveToJsonFile(file, TaskList);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        public void ReadFromJsonFile(File file)
+        {
+            FileManager fileManager = new FileManager();
+            fileManager.ReadFromJsonFile(file, TaskList);
+        }
+
         #endregion
         #region Overridden Methods
         /// <summary>

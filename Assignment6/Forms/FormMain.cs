@@ -6,10 +6,9 @@
 /// 
 
 using Assignment6.Classes;
-using Assignment6.Forms;
 using Assignment6.Enums;
+using Assignment6.Forms;
 using static Assignment6.Helpers.EnumHelper;
-using static Assignment6.Classes.FileManager;
 
 namespace Assignment6
 {
@@ -151,27 +150,47 @@ namespace Assignment6
             return DateTime.Now.ToString(format);
         }
         #endregion
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePicker1_MouseEnter(object sender, EventArgs e)
         {
             toolTipDateTime.Show("Click to open calender, write a time", this);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePicker1_MouseLeave(object sender, EventArgs e)
         {
             toolTipDateTime.Hide(this);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("About...");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (lstTasks.SelectedItems.Count == 0)
@@ -203,12 +222,20 @@ namespace Assignment6
                 //Nothing for now...
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dummy = 0;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtToDo_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtToDo.Text))
@@ -220,7 +247,11 @@ namespace Assignment6
                 btnAddTask.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (lstTasks.SelectedItems.Count == 0)
@@ -239,21 +270,35 @@ namespace Assignment6
 
             UpdateListView();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveDataFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TaskManager taskManagerCopy = new TaskManager(TaskManager);
-            Classes.File file = new Classes.File("C:/files/save1.json");
-            SaveToFile(file, taskManagerCopy);
-        }
+            Classes.File file = new Classes.File(@"C:\files", "SaveFile.txt");
+            TaskManager.SaveToFile(file);
 
+            //Json method
+            //Classes.File file2 = new Classes.File(@"C:\files", "save1.json");
+            //TaskManager.SaveToJsonFile(file2);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openDataFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TaskManager taskManagerCopy = new TaskManager(TaskManager);
-            Classes.File file = new Classes.File("C:/files/save1.json");
-            LoadFromFile(file, taskManagerCopy);
-            TaskManager.TaskList = taskManagerCopy.TaskList;
+            Classes.File file = new Classes.File(@"C:\files", "SaveFile.txt");
+            TaskManager.ReadFromFile(file);
             UpdateListView();
+
+            //Json method
+            //Classes.File file2 = new Classes.File(@"C:\files", "save1.json");
+            //TaskManager.ReadFromJsonFile(file2);
+            //UpdateListView();
         }
     }
 }

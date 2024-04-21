@@ -7,6 +7,9 @@
 
 namespace Assignment6.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Description
     {
         #region Fields
@@ -24,7 +27,7 @@ namespace Assignment6.Classes
             get => _taskDescription;
             set
             {
-                if (value != null) 
+                if (value != null)
                 {
                     _taskDescription = value;
                 }

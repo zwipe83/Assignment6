@@ -13,22 +13,39 @@ namespace Assignment6.Forms
 {
     public partial class FormEdit : Form
     {
+        #region Fields
+        /// <summary>
+        /// 
+        /// </summary>
         private Assignment6.Classes.Task _taskCopy;
-
+        #endregion
+        #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
         public Assignment6.Classes.Task TaskCopy
         {
             get => _taskCopy;
             private set
             {
-                if(value != null)
+                if (value != null)
                 {
                     _taskCopy = value;
                 }
             }
         }
+        #endregion
+        #region Constructors
+        /// <summary>
+        /// 
+        /// </summary>
         public FormEdit() : this(new Assignment6.Classes.Task())
         {
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="taskCopy"></param>
         public FormEdit(Assignment6.Classes.Task taskCopy)
         {
             InitializeComponent();
@@ -37,6 +54,11 @@ namespace Assignment6.Forms
 
             InitGUI();
         }
+        #endregion
+        #region Private Methods
+        /// <summary>
+        /// 
+        /// </summary>
         private void InitGUI()
         {
             dateTimePicker1.CustomFormat = "yyy-MM-dd    HH:mm:ss";
@@ -81,7 +103,11 @@ namespace Assignment6.Forms
         {
             comboBox.DataSource = priorityDescriptions;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveTask_Click(object sender, EventArgs e)
         {
             TaskCopy.Date = new Date(dateTimePicker1.Value.Date);
@@ -93,5 +119,6 @@ namespace Assignment6.Forms
 
             this.Close();
         }
+        #endregion
     }
 }

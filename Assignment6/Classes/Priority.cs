@@ -10,6 +10,9 @@ using static Assignment6.Helpers.EnumHelper;
 
 namespace Assignment6.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Priority
     {
         #region Fields

@@ -9,6 +9,7 @@ using System.ComponentModel;
 
 namespace Assignment6.Enums
 {
+    #region Enums
     /// <summary>
     /// 
     /// </summary>
@@ -23,4 +24,5 @@ namespace Assignment6.Enums
         [Description("Not Important")]
         NotImportant
     }
+    #endregion
 }

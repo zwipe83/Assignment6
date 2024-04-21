@@ -7,6 +7,9 @@
 
 namespace Assignment6.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Date
     {
         #region Fields
@@ -21,10 +24,10 @@ namespace Assignment6.Classes
         /// </summary>
         public DateTime TaskDate
         {
-            get => _taskDate; 
+            get => _taskDate;
             set
             {
-                if(value != null) //TODO: Add check for date is not already passed
+                if (value != null) //TODO: Add check for date is not already passed
                 {
                     _taskDate = value;
                 }
