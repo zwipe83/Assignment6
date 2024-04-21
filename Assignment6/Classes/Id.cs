@@ -7,7 +7,7 @@
 
 namespace Assignment6.Classes
 {
-    internal class Id
+    public class Id
     {
         #region Fields
         /// <summary>

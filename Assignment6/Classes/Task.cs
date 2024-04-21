@@ -7,7 +7,7 @@
 
 namespace Assignment6.Classes
 {
-    internal class Task
+    public class Task
     {
         #region Fields
         /// <summary>

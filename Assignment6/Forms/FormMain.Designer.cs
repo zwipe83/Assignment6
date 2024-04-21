@@ -167,6 +167,7 @@
             txtToDo.Name = "txtToDo";
             txtToDo.Size = new Size(625, 29);
             txtToDo.TabIndex = 4;
+            txtToDo.TextChanged += txtToDo_TextChanged;
             // 
             // btnAddTask
             // 
@@ -196,6 +197,7 @@
             lstTasks.Location = new Point(6, 28);
             lstTasks.Name = "lstTasks";
             lstTasks.Size = new Size(1046, 314);
+            lstTasks.Sorting = SortOrder.Ascending;
             lstTasks.TabIndex = 0;
             lstTasks.UseCompatibleStateImageBehavior = false;
             lstTasks.SelectedIndexChanged += lstTasks_SelectedIndexChanged;
@@ -220,6 +222,7 @@
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // lblTimer
             // 

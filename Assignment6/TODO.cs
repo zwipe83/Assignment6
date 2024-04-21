@@ -6,3 +6,6 @@
 /// 
 
 //TODO: Complete comments
+//TODO: Add confirmations on Add, Change, Delete, Save
+//TODO: Pad leading zeroes in date/time in ListView
+//TODO: fix basic sorting on DateTime, Priority and Description

@@ -7,7 +7,7 @@
 
 namespace Assignment6.Classes
 {
-    internal class Time
+    public class Time
     {
         #region Fields
         /// <summary>

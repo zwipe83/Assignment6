@@ -48,18 +48,28 @@ namespace Assignment6.Classes
         /// </summary>
         /// <param name="id"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void Change(Id id)
+        public void Change(Task task)
         {
-            MessageBox.Show($"{id}");
+            int index = TaskList.FindIndex(item => item.Id == task.Id);
+
+            if (index != -1)
+            {
+                TaskList[index] = task;
+            }
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void Delete(int id)
+        public void Delete(Id id)
         {
-            throw new NotImplementedException();
+            int index = TaskList.FindIndex(item => item.Id == id);
+
+            if (index != -1)
+            {
+                TaskList.RemoveAt(index);
+            }
         }
         /// <summary>
         /// 
@@ -79,7 +89,15 @@ namespace Assignment6.Classes
         /// <exception cref="NotImplementedException"></exception>
         public Task GetTask(Id id)
         {
-            throw new NotImplementedException();
+            foreach (Task task in TaskList)
+            {
+                if (task.Id == id)
+                {
+                    return task;
+                }
+            }
+
+            return null;
         }
         #endregion
         #region Overridden Methods

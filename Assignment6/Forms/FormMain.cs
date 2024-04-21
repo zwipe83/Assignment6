@@ -1,13 +1,13 @@
-
 /// <summary>
 /// Filename: FormMain.cs
 /// Created on: 2024-04-20 00:00:00
 /// Author: Samuel Jeffman
 /// </summary>
 /// 
+
 using Assignment6.Classes;
+using Assignment6.Forms;
 using Assignment6.Enums;
-using System.Diagnostics.Metrics;
 using static Assignment6.Helpers.EnumHelper;
 
 namespace Assignment6
@@ -62,6 +62,8 @@ namespace Assignment6
             lstTasks.Columns.Add("Time", 100, HorizontalAlignment.Left);
             lstTasks.Columns.Add("Priority", 150, HorizontalAlignment.Left);
             lstTasks.Columns.Add("Description", 550, HorizontalAlignment.Left);
+
+            btnAddTask.Enabled = false;
 
         }
         /// <summary>
@@ -171,19 +173,70 @@ namespace Assignment6
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            if(lstTasks.SelectedItems.Count == 0)
-            { 
-                return; 
+            if (lstTasks.SelectedItems.Count == 0)
+            {
+                return;
             }
 
             Id id = (Id)lstTasks.SelectedItems[0].Tag;
 
-            TaskManager.Change(id);
+            if (id == null)
+            {
+                return;
+            }
+
+            Assignment6.Classes.Task taskCopy = new Assignment6.Classes.Task(TaskManager.GetTask(id)); //Make a local copy of Task
+
+            FormEdit formEdit = new FormEdit(taskCopy);
+
+            formEdit.ShowDialog();
+
+
+            if (formEdit.DialogResult == DialogResult.OK)
+            {
+                TaskManager.Change(formEdit.TaskCopy);
+                UpdateListView();
+            }
+            else
+            {
+                //Nothing for now...
+            }
         }
 
         private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dummy = 0;
+        }
+
+        private void txtToDo_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtToDo.Text))
+            {
+                btnAddTask.Enabled = true;
+            }
+            else
+            {
+                btnAddTask.Enabled = false;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (lstTasks.SelectedItems.Count == 0)
+            {
+                return;
+            }
+
+            Id id = (Id)lstTasks.SelectedItems[0].Tag;
+
+            if (id == null)
+            {
+                return;
+            }
+
+            TaskManager.Delete(id);
+
+            UpdateListView();
         }
     }
 }

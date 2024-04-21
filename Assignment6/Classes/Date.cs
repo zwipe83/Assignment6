@@ -7,7 +7,7 @@
 
 namespace Assignment6.Classes
 {
-    internal class Date
+    public class Date
     {
         #region Fields
         /// <summary>

@@ -7,7 +7,7 @@
 
 namespace Assignment6.Classes
 {
-    internal class Description
+    public class Description
     {
         #region Fields
         /// <summary>
