@@ -23,6 +23,7 @@ namespace Assignment6.Classes
         public List<Task> TaskList
         {
             get => _taskList;
+            set => _taskList = value;
         }
         #endregion
         #region Constructors
@@ -33,6 +34,13 @@ namespace Assignment6.Classes
         {
             _taskList = new List<Task>();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public TaskManager(TaskManager objToCopyFrom)
+        {
+            _taskList = objToCopyFrom.TaskList;
+        }
         #endregion
         #region Public Methods
         /// <summary>
@@ -42,6 +50,14 @@ namespace Assignment6.Classes
         public void AddNew(Task task)
         {
             TaskList.Add(task); //TODO: Add sanity check
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="task"></param>
+        public void AddRange(List<Task> tasks)
+        {
+            TaskList.AddRange(tasks); //TODO: Add sanity check
         }
         /// <summary>
         /// 

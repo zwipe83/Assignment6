@@ -9,6 +9,7 @@ using Assignment6.Classes;
 using Assignment6.Forms;
 using Assignment6.Enums;
 using static Assignment6.Helpers.EnumHelper;
+using static Assignment6.Classes.FileManager;
 
 namespace Assignment6
 {
@@ -236,6 +237,22 @@ namespace Assignment6
 
             TaskManager.Delete(id);
 
+            UpdateListView();
+        }
+
+        private void saveDataFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager taskManagerCopy = new TaskManager(TaskManager);
+            Classes.File file = new Classes.File("C:/files/save1.json");
+            SaveToFile(file, taskManagerCopy);
+        }
+
+        private void openDataFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager taskManagerCopy = new TaskManager(TaskManager);
+            Classes.File file = new Classes.File("C:/files/save1.json");
+            LoadFromFile(file, taskManagerCopy);
+            TaskManager.TaskList = taskManagerCopy.TaskList;
             UpdateListView();
         }
     }
