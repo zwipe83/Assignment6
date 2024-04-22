@@ -27,7 +27,8 @@ namespace Assignment6.Classes
             get => _taskDate;
             protected set
             {
-                if (value != null) //TODO: Add check for date is not already passed
+                //TODO: Add check for date is not already passed, which is not really needed since MinDate property is used on DateTimePicker
+                if (value != null)
                 {
                     _taskDate = value;
                 }
