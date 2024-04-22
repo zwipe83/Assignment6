@@ -25,7 +25,7 @@ namespace Assignment6.Classes
         public string TaskDescription
         {
             get => _taskDescription;
-            set
+            protected set
             {
                 if (value != null)
                 {

@@ -12,3 +12,5 @@
 //TODO: fix what happends when you click New in file menu
 //TODO: Fin menu to look like documentation
 //TODO: Implement SaveFileDialog and OpenFileDialog
+//TODO: Go over all Properties setters, and maybe modify access
+//TODO: Rename classes Id, Date, Time, Priority and Description?

@@ -114,12 +114,16 @@ namespace Assignment6.Classes
                         bool h = int.TryParse(reader.ReadLine(), out hour);
                         bool mi = int.TryParse(reader.ReadLine(), out minute);
                         bool s = int.TryParse(reader.ReadLine(), out second);
-                        string priority = reader.ReadLine();
-                        string description = reader.ReadLine();
+                        
+                        if (!(y || mo || d || h || mi || s)) //Failed to extract proper date data, try next one
+                            continue;
 
-                        task.Date.TaskDate = new DateTime(year, month, day);
-                        task.Time.TaskTime = new TimeSpan(hour, minute, second);
-                        task.Priority.TaskPriority = (PriorityType)Enum.Parse(typeof(PriorityType), priority);
+                        string priority = reader.ReadLine() ?? "Normal";
+                        string description = reader.ReadLine() ?? string.Empty;
+
+                        task.Date = new Date(new DateTime(year, month, day));
+                        task.Time = new Time(new TimeSpan(hour, minute, second));
+                        task.Priority = new Priority((PriorityType)Enum.Parse(typeof(PriorityType), priority));
                         task.Description = new Description(description);
 
                         taskList.Add(task);

@@ -25,7 +25,7 @@ namespace Assignment6.Classes
         public Guid TaskId
         {
             get => _taskId;
-            set
+            protected set
             {
                 if (value != null) //TODO: Add check for date is not already passed
                 {

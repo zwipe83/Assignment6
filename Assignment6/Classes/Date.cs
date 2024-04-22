@@ -25,7 +25,7 @@ namespace Assignment6.Classes
         public DateTime TaskDate
         {
             get => _taskDate;
-            set
+            protected set
             {
                 if (value != null) //TODO: Add check for date is not already passed
                 {

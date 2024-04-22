@@ -25,7 +25,7 @@ namespace Assignment6.Classes
         public TimeSpan TaskTime
         {
             get => _taskTime;
-            set
+            protected set
             {
                 if (value != null)
                 {

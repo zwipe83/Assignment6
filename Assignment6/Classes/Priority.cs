@@ -28,7 +28,7 @@ namespace Assignment6.Classes
         public PriorityType TaskPriority
         {
             get => _taskPriority;
-            set
+            protected set
             {
                 if (value != null)
                 {
