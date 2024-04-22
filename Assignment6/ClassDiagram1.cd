@@ -24,12 +24,12 @@
   <Class Name="Assignment6.Classes.Priority">
     <Position X="2.25" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAAAEAABEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Priority.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment6.Classes.Description">
-    <Position X="2.25" Y="10.5" Width="1.5" />
+    <Position X="2.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Classes\Description.cs</FileName>
@@ -50,10 +50,31 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment6.FormMain">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BQSKBQAQQCAQAAATAQDCQAkKApgAJAQAAkAIA4AmQQQ=</HashCode>
+      <HashCode>BQSKBQkQQCgQABATAQDDQAkKApgAJAQAAkAIA6AmQQQ=</HashCode>
       <FileName>Forms\FormMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.File">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAACAAIAAAAAAAQAAAAAAAAAAQAAAAIAAAA=</HashCode>
+      <FileName>Classes\File.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Forms.FormEdit">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKBAEAQCAQAAADAACAQAACAIAAAAAAACAAAAAhAAA=</HashCode>
+      <FileName>Forms\FormEdit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment6.Classes.FileManager">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAEg=</HashCode>
+      <FileName>Classes\FileManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Assignment6.Enums.PriorityType">

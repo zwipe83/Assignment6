@@ -17,9 +17,13 @@ namespace Assignment6.Classes
     {
         #region Fields
         /// <summary>
-        /// 
+        /// Field for storing of task priority, of type <see cref="PriorityType"/>
         /// </summary>
         private PriorityType _taskPriority;
+        /// <summary>
+        /// Property for getting and setting value to private field <see cref="_taskPriority"/>
+        /// </summary>
+        private static readonly PriorityType defaultPriority = PriorityType.Normal;
         #endregion
         #region Properties
         /// <summary>
@@ -28,24 +32,18 @@ namespace Assignment6.Classes
         public PriorityType TaskPriority
         {
             get => _taskPriority;
-            protected set
-            {
-                if (value != null)
-                {
-                    _taskPriority = value;
-                }
-            }
+            protected set => _taskPriority = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default Priority constructor, creates an intance of <see cref="Priority"/> with default values
         /// </summary>
-        public Priority() : this(PriorityType.Normal)
+        public Priority() : this(defaultPriority)
         {
         }
         /// <summary>
-        /// 
+        /// Priority constructor, creates an intance of <see cref="Priority"/> with a specific <see cref="PriorityType"/> as parameter
         /// </summary>
         /// <param name="priority"></param>
         public Priority(PriorityType priority)
@@ -55,7 +53,7 @@ namespace Assignment6.Classes
         #endregion
         #region Overridden Methods
         /// <summary>
-        /// 
+        /// Overridden method for printing task priority to a <see cref="string"/>
         /// </summary>
         /// <returns></returns>
         public override string ToString()

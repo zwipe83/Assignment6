@@ -74,7 +74,7 @@ namespace Assignment6.Forms
 
             DateTime dateTime = date.Add(time); // Combine the date and time
 
-            dateTimePicker1.MinDate = dateTime; //TODO: Add DateTime.Now if date hasn't passed yet.
+            dateTimePicker1.MinDate = (dateTime > DateTime.Now) ? DateTime.Now : dateTime; //FIXED: Add DateTime.Now if date hasn't passed yet.
 
             dateTimePicker1.Value = dateTime;
 
@@ -110,14 +110,23 @@ namespace Assignment6.Forms
         /// <param name="e"></param>
         private void btnSaveTask_Click(object sender, EventArgs e)
         {
-            TaskCopy.Date = new Date(dateTimePicker1.Value.Date);
-            TaskCopy.Time = new Time(dateTimePicker1.Value.TimeOfDay);
-            TaskCopy.Priority = new Priority((PriorityType)cmbPriority.SelectedIndex);
-            TaskCopy.Description = new Description(txtToDo.Text);
+            DialogResult result = MessageBox.Show("Are you sure you want to save changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                TaskCopy.Date = new Date(dateTimePicker1.Value.Date);
+                TaskCopy.Time = new Time(dateTimePicker1.Value.TimeOfDay);
+                TaskCopy.Priority = new Priority((PriorityType)cmbPriority.SelectedIndex);
+                TaskCopy.Description = new Description(txtToDo.Text);
 
-            DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
 
-            this.Close();
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                return; //Do nothing
+            }
+
         }
         #endregion
     }

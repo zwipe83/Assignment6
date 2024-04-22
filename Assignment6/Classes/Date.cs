@@ -14,36 +14,29 @@ namespace Assignment6.Classes
     {
         #region Fields
         /// <summary>
-        /// 
+        /// Field for storing of task date, of type <see cref="DateTime"/>
         /// </summary>
         private DateTime _taskDate;
         #endregion
         #region Properties
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_taskDate"/>
         /// </summary>
         public DateTime TaskDate
         {
             get => _taskDate;
-            protected set
-            {
-                //TODO: Add check for date is not already passed, which is not really needed since MinDate property is used on DateTimePicker
-                if (value != null)
-                {
-                    _taskDate = value;
-                }
-            }
+            protected set => _taskDate = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default Date constructor, creates an intance of <see cref="Date"/> with default values
         /// </summary>
         public Date() : this(new DateTime())
         {
         }
         /// <summary>
-        /// 
+        /// Date constructor, creates an intance of <see cref="Date"/> with a specific <see cref="DateTime"/> as parameter
         /// </summary>
         /// <param name="date"></param>
         public Date(DateTime date)
@@ -53,7 +46,7 @@ namespace Assignment6.Classes
         #endregion
         #region Overridden Methods
         /// <summary>
-        /// 
+        /// Overridden method for printing task date to a <see cref="string"/>
         /// </summary>
         /// <returns></returns>
         public override string ToString()

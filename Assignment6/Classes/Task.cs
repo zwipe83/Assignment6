@@ -35,11 +35,13 @@ namespace Assignment6.Classes
         private Description _description;
         #endregion
         #region Properties
-        //TODO: Check setters!
+        /// <summary>
+        /// 
+        /// </summary>
         public Id Id
         {
             get => _id;
-            set
+            protected set
             {
                 if (value != null)
                 {
@@ -47,10 +49,13 @@ namespace Assignment6.Classes
                 }
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public Date Date
         {
             get => _date;
-            set
+            internal set
             {
                 if (value != null)
                 {
@@ -58,10 +63,13 @@ namespace Assignment6.Classes
                 }
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public Time Time
         {
             get => _time;
-            set
+            internal set
             {
                 if (value != null)
                 {
@@ -69,10 +77,13 @@ namespace Assignment6.Classes
                 }
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public Priority Priority
         {
             get => _priority;
-            set
+            internal set
             {
                 if (value != null)
                 {
@@ -80,10 +91,13 @@ namespace Assignment6.Classes
                 }
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public Description Description
         {
             get => _description;
-            set
+            internal set
             {
                 if (value != null)
                 {

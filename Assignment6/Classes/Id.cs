@@ -14,35 +14,29 @@ namespace Assignment6.Classes
     {
         #region Fields
         /// <summary>
-        /// 
+        /// Field for storing of task id, of type <see cref="Guid"/>
         /// </summary>
         private Guid _taskId;
         #endregion
         #region Properties
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_taskId"/>
         /// </summary>
         public Guid TaskId
         {
             get => _taskId;
-            protected set
-            {
-                if (value != null) //TODO: Add check for date is not already passed
-                {
-                    _taskId = value;
-                }
-            }
+            protected set => _taskId = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default Id constructor, creates an intance of <see cref="Id"/> with default values
         /// </summary>
         public Id() : this(Guid.NewGuid())
         {
         }
         /// <summary>
-        /// 
+        /// Date constructor, creates an intance of <see cref="Id"/> with a specific <see cref="Guid"/> as parameter
         /// </summary>
         /// <param name="id"></param>
         public Id(Guid id)
@@ -52,7 +46,7 @@ namespace Assignment6.Classes
         #endregion
         #region Overridden Methods
         /// <summary>
-        /// 
+        /// Overridden method for printing task id to a <see cref="string"/>
         /// </summary>
         /// <returns></returns>
         public override string ToString()

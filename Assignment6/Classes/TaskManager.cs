@@ -18,14 +18,12 @@ namespace Assignment6.Classes
         private List<Task> _taskList;
         #endregion
         #region Properties
-        //TODO: Check setters!
         /// <summary>
         /// 
         /// </summary>
-        public List<Task> TaskList
+        internal List<Task> TaskList
         {
             get => _taskList;
-            set => _taskList = value;
         }
         #endregion
         #region Constructors
@@ -51,15 +49,20 @@ namespace Assignment6.Classes
         /// <param name="task"></param>
         public void AddNew(Task task)
         {
-            TaskList.Add(task); //TODO: Add sanity check
+            if (TaskList == null || task == null)
+            {
+                return;
+            }
+
+            TaskList.Add(task);
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="task"></param>
-        public void AddRange(List<Task> tasks)
+        public void AddRange(List<Task> tasks) //TODO: Use this instead?
         {
-            TaskList.AddRange(tasks); //TODO: Add sanity check
+            TaskList.AddRange(tasks);
         }
         /// <summary>
         /// 
@@ -92,19 +95,8 @@ namespace Assignment6.Classes
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="task"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public Id GetTaskId(Task task)
-        {
-            throw new NotImplementedException();
-        }
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public Task GetTask(Id id)
         {
             foreach (Task task in TaskList)
@@ -123,17 +115,31 @@ namespace Assignment6.Classes
         /// <param name="file"></param>
         public void SaveToFile(File file)
         {
-            FileManager fileManager = new FileManager();
-            fileManager.SaveTaskListToFile(file, TaskList);
-        }
+            try
+            { 
+                FileManager fileManager = new FileManager();
+                fileManager.SaveTaskListToFile(file, TaskList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+}
         /// <summary>
         /// 
         /// </summary>
         /// <param name="file"></param>
         public void ReadFromFile(File file)
         {
-            FileManager filemanager = new FileManager();
-            filemanager.ReadTaskListFromFile(file, TaskList);
+            try
+            {
+                FileManager filemanager = new FileManager();
+                filemanager.ReadTaskListFromFile(file, TaskList);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
         /// <summary>
         /// 
@@ -162,7 +168,7 @@ namespace Assignment6.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{TaskList}"; //TODO: What does this do?
+            return $"{TaskList}"; //TODO: What does this return?
         }
         #endregion
     }

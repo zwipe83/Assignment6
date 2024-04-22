@@ -11,7 +11,7 @@ namespace Assignment6.Enums
 {
     #region Enums
     /// <summary>
-    /// 
+    /// Enum for different levels of priority
     /// </summary>
     public enum PriorityType
     {
