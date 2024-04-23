@@ -57,7 +57,7 @@ namespace Assignment6.Classes
             get => _name;
             protected set
             {
-                if (!string.IsNullOrWhiteSpace(value)) 
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     _name = value;
                 }

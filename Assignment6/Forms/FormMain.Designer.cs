@@ -52,7 +52,7 @@
             btnDelete = new Button();
             lblTimer = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            toolTipDateTime = new ToolTip(components);
+            toolTip1 = new ToolTip(components);
             timer2 = new System.Windows.Forms.Timer(components);
             menuStrip1.SuspendLayout();
             grpTaskList.SuspendLayout();
@@ -158,8 +158,6 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(319, 29);
             dateTimePicker1.TabIndex = 2;
-            dateTimePicker1.MouseEnter += dateTimePicker1_MouseEnter;
-            dateTimePicker1.MouseLeave += dateTimePicker1_MouseLeave;
             // 
             // lblPriority
             // 
@@ -262,11 +260,11 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // toolTipDateTime
+            // toolTip1
             // 
-            toolTipDateTime.AutomaticDelay = 0;
-            toolTipDateTime.ShowAlways = true;
-            toolTipDateTime.UseAnimation = false;
+            toolTip1.AutomaticDelay = 0;
+            toolTip1.ShowAlways = true;
+            toolTip1.UseAnimation = false;
             // 
             // timer2
             // 
@@ -323,7 +321,7 @@
         private Button btnDelete;
         private Label lblTimer;
         private System.Windows.Forms.Timer timer1;
-        private ToolTip toolTipDateTime;
+        private ToolTip toolTip1;
         private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;

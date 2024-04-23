@@ -8,7 +8,6 @@
 using Assignment6.Classes;
 using Assignment6.Enums;
 using Assignment6.Forms;
-using System.Windows.Forms;
 using static Assignment6.Helpers.EnumHelper;
 
 namespace Assignment6
@@ -25,7 +24,7 @@ namespace Assignment6
         #region Properties
         internal TaskManager TaskManager
         {
-            get => _taskManager ?? (_taskManager = new TaskManager());
+            get => _taskManager ??= new TaskManager();
         }
 
         #endregion
@@ -62,6 +61,17 @@ namespace Assignment6
             SetPriorityDescriptions(priorityDescriptions, cmbPriority);
 
             cmbPriority.SelectedIndex = (int)defaultPriority;
+
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(dateTimePicker1, "Click to open calendar, write to enter time.");
+            toolTip1.SetToolTip(cmbPriority, "Select a priority.");
+            toolTip1.SetToolTip(txtToDo, "Enter a description for your reminder.");
+            toolTip1.SetToolTip(btnAddTask, "Click here to save your reminder.");
+            toolTip1.SetToolTip(btnChange, "Click here to edit selected reminder.");
+            toolTip1.SetToolTip(btnDelete, "Click here to delete selected reminder.");
+            toolTip1.SetToolTip(lblTimer, "Shows current time.");
+
 
             lstTasks.View = View.Details;
 
@@ -167,27 +177,10 @@ namespace Assignment6
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dateTimePicker1_MouseEnter(object sender, EventArgs e)
-        {
-            toolTipDateTime.Show("Click to open calender, write a time", this);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dateTimePicker1_MouseLeave(object sender, EventArgs e)
-        {
-            toolTipDateTime.Hide(this);
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("About...");
+            FormAbout formAbout = new FormAbout();
+            formAbout.ShowDialog();
         }
         /// <summary>
         /// 
@@ -238,7 +231,6 @@ namespace Assignment6
                 UpdateListView();
                 UpdateFileMenu();
                 UpdateButtons();
-
             }
             else
             {
@@ -264,7 +256,7 @@ namespace Assignment6
         /// </summary>
         private void UpdateButtons()
         {
-            if (lstTasks.Items.Count > 0)
+            if (lstTasks.Items.Count > 0 && lstTasks.SelectedItems.Count > 0)
             {
                 btnChange.Enabled = true;
                 btnDelete.Enabled = true;
@@ -282,7 +274,7 @@ namespace Assignment6
         /// <param name="e"></param>
         private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var dummy = 0;
+            UpdateButtons();
         }
         /// <summary>
         /// 
@@ -351,20 +343,30 @@ namespace Assignment6
                     string filePath = saveFileDialog.FileName;
 
                     if (string.IsNullOrWhiteSpace(filePath))
+                    {
                         return;
+                    }
 
-                    string path = Path.GetDirectoryName(filePath);
-                    string fileName = Path.GetFileName(filePath);
+                    DialogResult result = MessageBox.Show($"Are you sure you want to save to file?\n\n{filePath}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        string path = Path.GetDirectoryName(filePath);
+                        string fileName = Path.GetFileName(filePath);
 
-                    Classes.File file = new Classes.File(path, fileName);
-                    TaskManager.SaveToFile(file);
+                        Classes.File file = new Classes.File(path, fileName);
+                        TaskManager.SaveToFile(file);
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        return; //Do nothing
+                    }
                 }
                 else
                 {
                     //No need to do anything...
                 }
 
-                //Json method
+                //Json method, alternative
                 //Classes.File file2 = new Classes.File(@"C:\files", "save1.json");
                 //TaskManager.SaveToJsonFile(file2);
             }
@@ -392,19 +394,27 @@ namespace Assignment6
                     if (string.IsNullOrWhiteSpace(filePath))
                         return;
 
-                    string path = Path.GetDirectoryName(filePath);
-                    string fileName = Path.GetFileName(filePath);
+                    DialogResult result = MessageBox.Show($"Are you sure you want to load from file?\n\n{filePath}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        string path = Path.GetDirectoryName(filePath);
+                        string fileName = Path.GetFileName(filePath);
 
-                    Classes.File file = new Classes.File(path, fileName);
-                    TaskManager.ReadFromFile(file);
-                    UpdateListView();
+                        Classes.File file = new Classes.File(path, fileName);
+                        TaskManager.ReadFromFile(file);
+                        UpdateListView();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        return; //Do nothing
+                    }
                 }
                 else
                 {
                     //No need to do anything...
                 }
 
-                //Json method
+                //Json method, alternative
                 //Classes.File file2 = new Classes.File(@"C:\files", "save1.json");
                 //TaskManager.ReadFromJsonFile(file2);
                 //UpdateListView();

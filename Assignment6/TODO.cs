@@ -14,8 +14,10 @@
 //FIXED: Implement SaveFileDialog and OpenFileDialog
 //FIXED: Go over all Properties setters, and maybe modify access
 //TODO: Rename classes Id, Date, Time, Priority and Description?
-//TODO: Add null checks for example where _taskManager is used?
-//TODO: Fix "About..."
-//TODO: Confirmation on Open/Save file
-//TODO: Fix tooltips!!!
+//FIXED: Add null checks for example where _taskManager is used? Property TaskManager returns a new TaskManager if null
+//FIXED: Fix "About..."
+//FIXED: Confirmation on Open/Save file?
+//FIXED: Fix tooltips!!!
 //TODO: Read up on nullable vs. non-nullable fields
+//TODO: Look at "Optionals"
+//TODO: Refactoring?

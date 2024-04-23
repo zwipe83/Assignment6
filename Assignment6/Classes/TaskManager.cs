@@ -116,15 +116,23 @@ namespace Assignment6.Classes
         public void SaveToFile(File file)
         {
             try
-            { 
+            {
+                string fullPath = Path.Combine(file.Path, file.Name);
                 FileManager fileManager = new FileManager();
-                fileManager.SaveTaskListToFile(file, TaskList);
+                if (fileManager.SaveTaskListToFile(file, TaskList))
+                {
+                    MessageBox.Show($"File saved successfully to:\n\n{fullPath}");
+                }
+                else
+                {
+                    throw new Exception($"Failed to save the file:\n\n{fullPath}");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-}
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -133,8 +141,16 @@ namespace Assignment6.Classes
         {
             try
             {
+                string fullPath = Path.Combine(file.Path, file.Name);
                 FileManager filemanager = new FileManager();
-                filemanager.ReadTaskListFromFile(file, TaskList);
+                if (filemanager.ReadTaskListFromFile(file, TaskList))
+                {
+                    MessageBox.Show($"File loaded successfully from:\n\n{fullPath}");
+                }
+                else
+                {
+                    throw new Exception($"Failed to read the file:\n\n{fullPath}");
+                }
             }
             catch (Exception ex)
             {

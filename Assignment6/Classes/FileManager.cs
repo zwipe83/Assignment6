@@ -76,7 +76,7 @@ namespace Assignment6.Classes
                     writer.Close();
                 }
             }
-            return ok; //TODO: Add message if it was success or not.
+            return ok; //FIXED: Add message if it was success or not.
         }
         /// <summary>
         /// Method for reading the contents of a <see cref="File"/> and storing the read data to a <see cref="Task"/> instance. Instances are then stored in provided <see cref="List{Task}"/>
