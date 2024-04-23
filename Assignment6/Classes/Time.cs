@@ -46,7 +46,7 @@ namespace Assignment6.Classes
         #endregion
         #region Overridden Methods
         /// <summary>
-        /// Overridden method for printing task date to a <see cref="string"/>
+        /// Overridden method for printing task time to a <see cref="string"/>
         /// </summary>
         /// <returns></returns>
         public override string ToString()

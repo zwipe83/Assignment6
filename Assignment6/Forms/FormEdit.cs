@@ -15,35 +15,28 @@ namespace Assignment6.Forms
     {
         #region Fields
         /// <summary>
-        /// 
+        /// Field for storing of task copy, of type <see cref="Task"/>
         /// </summary>
         private Assignment6.Classes.Task _taskCopy;
         #endregion
         #region Properties
         /// <summary>
-        /// 
+        /// Property for getting value to private field <see cref="_taskCopy"/>
         /// </summary>
         public Assignment6.Classes.Task TaskCopy
         {
             get => _taskCopy;
-            private set
-            {
-                if (value != null)
-                {
-                    _taskCopy = value;
-                }
-            }
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default constuctor
         /// </summary>
         public FormEdit() : this(new Assignment6.Classes.Task())
         {
         }
         /// <summary>
-        /// 
+        /// Constructor with a specific <see cref="Task"/> as parameter
         /// </summary>
         /// <param name="taskCopy"></param>
         public FormEdit(Assignment6.Classes.Task taskCopy)
@@ -57,17 +50,32 @@ namespace Assignment6.Forms
         #endregion
         #region Private Methods
         /// <summary>
-        /// 
+        /// Initialize GUI
         /// </summary>
         private void InitGUI()
         {
-            dateTimePicker1.CustomFormat = "yyy-MM-dd    HH:mm:ss";
+            txtToDo.Text = TaskCopy.Description.ToString();
 
+            InitComboBox();
+
+            InitDateTimePicker();
+        }
+        /// <summary>
+        /// Init Combobox
+        /// </summary>
+        private void InitComboBox()
+        {
             string[] priorityDescriptions = GetPriorityDescriptions();
             SetPriorityDescriptions(priorityDescriptions, cmbPriority);
-
-            txtToDo.Text = TaskCopy.Description.ToString();
             cmbPriority.SelectedIndex = (int)TaskCopy.Priority.TaskPriority;
+        }
+
+        /// <summary>
+        /// Init Datetimepicker
+        /// </summary>
+        private void InitDateTimePicker()
+        {
+            dateTimePicker1.CustomFormat = "yyyy-MM-dd    HH:mm:ss";
 
             DateTime date = TaskCopy.Date.TaskDate;
             TimeSpan time = TaskCopy.Time.TaskTime;
@@ -77,7 +85,6 @@ namespace Assignment6.Forms
             dateTimePicker1.MinDate = (dateTime > DateTime.Now) ? DateTime.Now : dateTime; //FIXED: Add DateTime.Now if date hasn't passed yet.
 
             dateTimePicker1.Value = dateTime;
-
         }
 
         /// <summary>
@@ -104,7 +111,7 @@ namespace Assignment6.Forms
             comboBox.DataSource = priorityDescriptions;
         }
         /// <summary>
-        /// 
+        /// Save changes to task copy of type <see cref="Task"/>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -126,7 +133,15 @@ namespace Assignment6.Forms
             {
                 return; //Do nothing
             }
-
+        }
+        /// <summary>
+        /// Update MinDate property continuously to make it near impossible to enter a date and time that has already passed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            dateTimePicker1.MinDate = DateTime.Now;
         }
         #endregion
     }

@@ -36,7 +36,7 @@ namespace Assignment6.Classes
         {
         }
         /// <summary>
-        /// Date constructor, creates an intance of <see cref="Id"/> with a specific <see cref="Guid"/> as parameter
+        /// Id constructor, creates an intance of <see cref="Id"/> with a specific <see cref="Guid"/> as parameter
         /// </summary>
         /// <param name="id"></param>
         public Id(Guid id)

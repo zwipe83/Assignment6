@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnSaveTask = new Button();
             txtToDo = new TextBox();
             cmbPriority = new ComboBox();
@@ -35,6 +36,7 @@
             lblToDo = new Label();
             lblPriority = new Label();
             lblDateAndTime = new Label();
+            timer2 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // btnSaveTask
@@ -58,6 +60,7 @@
             // 
             // cmbPriority
             // 
+            cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPriority.Font = new Font("Segoe UI", 12F);
             cmbPriority.FormattingEnabled = true;
             cmbPriority.Location = new Point(601, 33);
@@ -104,6 +107,12 @@
             lblDateAndTime.TabIndex = 8;
             lblDateAndTime.Text = "Date and time";
             // 
+            // timer2
+            // 
+            timer2.Enabled = true;
+            timer2.Interval = 60000;
+            timer2.Tick += timer2_Tick;
+            // 
             // FormEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -131,5 +140,6 @@
         private Label lblToDo;
         private Label lblPriority;
         private Label lblDateAndTime;
+        private System.Windows.Forms.Timer timer2;
     }
 }

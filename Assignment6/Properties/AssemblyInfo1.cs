@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 // In SDK-style projects such as this one, several assembly attributes that were historically
 // defined in this file are now automatically added during build and populated with
@@ -32,3 +33,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("My trademark is No trademark")]
 [assembly: AssemblyVersion(version: "1.0.1.*")]
 [assembly: AssemblyFileVersion(version: "1.0.1")]
+[assembly: SupportedOSPlatform("windows")]

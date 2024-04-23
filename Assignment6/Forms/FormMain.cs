@@ -18,10 +18,19 @@ namespace Assignment6
     public partial class FormMain : Form
     {
         #region Fields
+        /// <summary>
+        /// Field for storing of task manager, of type <see cref="TaskManager"/>
+        /// </summary>
         private TaskManager _taskManager;
+        /// <summary>
+        /// Default priosrity of type <see cref="PriorityType"/>
+        /// </summary>
         private readonly PriorityType defaultPriority = PriorityType.Normal;
         #endregion
         #region Properties
+        /// <summary>
+        /// Property for getting object of type <see cref="_taskManager"/>
+        /// </summary>
         internal TaskManager TaskManager
         {
             get => _taskManager ??= new TaskManager();
@@ -30,7 +39,7 @@ namespace Assignment6
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default constructor
         /// </summary>
         public FormMain()
         {
@@ -39,29 +48,83 @@ namespace Assignment6
             InitGUI();
         }
         #endregion
-        #region private Methods
+        #region Private Methods
         /// <summary>
-        /// 
+        /// Initializes the GUI with a more aesthetically pleasing layout.
         /// </summary>
-        private void InitGUI() //TODO: Make this prettier
+        private void InitGUI()
         {
+            //Create new instance of TaskManager
             _taskManager = new TaskManager();
 
-            lstTasks.Items.Clear();
+            //Disable Add button
+            btnAddTask.Enabled = false;
 
-            txtToDo.Text = string.Empty;
-            dateTimePicker1.Value = DateTime.Now;
-            lstTasks.Columns.Clear();
-
+            //Update rest of interaction controls
+            InitDateTimepicker();
+            SetDefaultValues();
+            InitCombobox();
+            InitListView();
+            InitToolTip();
+            UpdateFileMenu();
+            UpdateButtons();
+        }
+        /// <summary>
+        /// Init datetimepicker
+        /// </summary>
+        private void InitDateTimepicker()
+        {
+            //Configure dateTimePicker
             dateTimePicker1.CustomFormat = "yyy-MM-dd    HH:mm:ss";
             dateTimePicker1.MinDate = DateTime.Now;
-            lblTimer.Text = GetNowToString("HH:mm:ss");
-
+        }
+        /// <summary>
+        /// Init combobox with priority descriptions
+        /// </summary>
+        private void InitCombobox()
+        {
+            //Get priorities from Enum
             string[] priorityDescriptions = GetPriorityDescriptions();
             SetPriorityDescriptions(priorityDescriptions, cmbPriority);
 
+            //Set default value to combobox
             cmbPriority.SelectedIndex = (int)defaultPriority;
+        }
+        /// <summary>
+        /// Set default values in gui controls
+        /// </summary>
+        private void SetDefaultValues()
+        {
+            //Set default values
+            txtToDo.Text = string.Empty;
+            dateTimePicker1.Value = DateTime.Now;
+            lblTimer.Text = GetNowToString("HH:mm:ss");
+        }
 
+        /// <summary>
+        /// Init listview
+        /// </summary>
+        private void InitListView()
+        {
+            //Clear listview
+            lstTasks.Items.Clear();
+            lstTasks.Columns.Clear();
+
+            //Add columns to listview
+            lstTasks.View = View.Details;
+
+            lstTasks.Columns.Add("Date", 100, HorizontalAlignment.Left);
+            lstTasks.Columns.Add("Time", 100, HorizontalAlignment.Left);
+            lstTasks.Columns.Add("Priority", 150, HorizontalAlignment.Left);
+            lstTasks.Columns.Add("Description", 550, HorizontalAlignment.Left);
+        }
+
+        /// <summary>
+        /// Init tooltip
+        /// </summary>
+        private void InitToolTip()
+        {
+            //Configure tooltip
             toolTip1.ShowAlways = true;
 
             toolTip1.SetToolTip(dateTimePicker1, "Click to open calendar, write to enter time.");
@@ -71,22 +134,8 @@ namespace Assignment6
             toolTip1.SetToolTip(btnChange, "Click here to edit selected reminder.");
             toolTip1.SetToolTip(btnDelete, "Click here to delete selected reminder.");
             toolTip1.SetToolTip(lblTimer, "Shows current time.");
-
-
-            lstTasks.View = View.Details;
-
-
-            lstTasks.Columns.Add("Date", 100, HorizontalAlignment.Left);
-            lstTasks.Columns.Add("Time", 100, HorizontalAlignment.Left);
-            lstTasks.Columns.Add("Priority", 150, HorizontalAlignment.Left);
-            lstTasks.Columns.Add("Description", 550, HorizontalAlignment.Left);
-
-            btnAddTask.Enabled = false;
-
-            UpdateFileMenu();
-            UpdateButtons();
-
         }
+
         /// <summary>
         /// Gets priority descriptions as <see cref="string"/> from Enum of type <see cref="PriorityType"/>
         /// </summary>
@@ -111,7 +160,7 @@ namespace Assignment6
             comboBox.DataSource = priorityDescriptions;
         }
         /// <summary>
-        /// 
+        /// Adds a <see cref="Task"/> to a collection of type <see cref="TaskManager.TaskList"/>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,14 +174,26 @@ namespace Assignment6
 
             Assignment6.Classes.Task task = new Assignment6.Classes.Task(id, date, time, priority, description);
 
-            TaskManager.AddNew(task);
+            TaskManager.AddNewTask(task);
 
+            ResetControls();
             UpdateListView();
             UpdateFileMenu();
             UpdateButtons();
         }
         /// <summary>
-        /// 
+        /// Reset controls
+        /// </summary>
+        private void ResetControls()
+        {
+            //Reset controls
+            txtToDo.Text = string.Empty;
+            cmbPriority.SelectedIndex = (int)defaultPriority;
+            dateTimePicker1.Value = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Updates content in listview
         /// </summary>
         private void UpdateListView()
         {
@@ -144,18 +205,14 @@ namespace Assignment6
                 item.SubItems.Add(task.Priority.ToString());
                 item.SubItems.Add(task.Description.ToString());
 
-                //lstTasks.Items.Add(item); // Add the ListViewItem to the ListView
-
                 string[] row = { task.Date.ToString(), task.Time.ToString(), task.Priority.ToString(), task.Description.ToString() };
                 var listViewItem = new ListViewItem(row);
                 listViewItem.Tag = task.Id;
                 lstTasks.Items.Add(listViewItem);
-
-                //lstTasks.Items.Add(new ListViewItem(new string[] { task.ToString() }));
             }
         }
         /// <summary>
-        /// 
+        /// Timer updates time label in gui
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -164,16 +221,15 @@ namespace Assignment6
             lblTimer.Text = GetNowToString("HH:mm:ss");
         }
         /// <summary>
-        /// 
+        /// Get <see cref="DateTime.Now"/> as string
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="DateTime.Now"/> as a string</returns>
         private string GetNowToString(string format)
         {
             return DateTime.Now.ToString(format);
         }
-        #endregion
         /// <summary>
-        /// 
+        /// Open about dialog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -183,7 +239,7 @@ namespace Assignment6
             formAbout.ShowDialog();
         }
         /// <summary>
-        /// 
+        /// Exit application
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -200,7 +256,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Changes currently selected <see cref="Task"/> in listview
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -208,26 +264,27 @@ namespace Assignment6
         {
             if (lstTasks.SelectedItems.Count == 0)
             {
-                return;
+                return; //Nothing selected
             }
 
             Id id = (Id)lstTasks.SelectedItems[0].Tag;
 
             if (id == null)
             {
-                return;
+                return; //Id is no good...
             }
 
             Assignment6.Classes.Task taskCopy = new Assignment6.Classes.Task(TaskManager.GetTask(id)); //Make a local copy of Task
 
+            //Create new form and show it
             FormEdit formEdit = new FormEdit(taskCopy);
 
             formEdit.ShowDialog();
 
-
+            //Handle form closing
             if (formEdit.DialogResult == DialogResult.OK)
             {
-                TaskManager.Change(formEdit.TaskCopy);
+                TaskManager.ChangeTask(formEdit.TaskCopy);
                 UpdateListView();
                 UpdateFileMenu();
                 UpdateButtons();
@@ -238,7 +295,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Update File menu
         /// </summary>
         private void UpdateFileMenu()
         {
@@ -252,7 +309,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Update button status in the GUI
         /// </summary>
         private void UpdateButtons()
         {
@@ -268,7 +325,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Update button status when selected index changes in listview
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -277,7 +334,7 @@ namespace Assignment6
             UpdateButtons();
         }
         /// <summary>
-        /// 
+        /// Enable/Disable Add button depending on if description textbox is empty or not
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -293,7 +350,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Delete selected <see cref="Task"/> in the listview
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -301,21 +358,21 @@ namespace Assignment6
         {
             if (lstTasks.SelectedItems.Count == 0)
             {
-                return;
+                return; //Nothing selected
             }
 
             Id id = (Id)lstTasks.SelectedItems[0].Tag;
 
             if (id == null)
             {
-                return;
+                return; //Id is no good
             }
 
-
+            //Ask if you really want to delete.
             DialogResult result = MessageBox.Show("Are you sure you want to delete task?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                TaskManager.Delete(id);
+                TaskManager.DeleteTask(id);
 
                 UpdateListView();
                 UpdateFileMenu();
@@ -327,7 +384,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Save a file to disk
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -376,7 +433,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Read a file from disk
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -403,6 +460,8 @@ namespace Assignment6
                         Classes.File file = new Classes.File(path, fileName);
                         TaskManager.ReadFromFile(file);
                         UpdateListView();
+                        UpdateButtons();
+                        UpdateFileMenu();
                     }
                     else if (result == DialogResult.No)
                     {
@@ -425,7 +484,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Reset GUI to startup state
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -442,7 +501,7 @@ namespace Assignment6
             }
         }
         /// <summary>
-        /// 
+        /// Open FormEdit on double click in listview
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -451,7 +510,7 @@ namespace Assignment6
             btnChange_Click(sender, e);
         }
         /// <summary>
-        /// 
+        /// Update MinDate property continuously to make it near impossible to enter a date and time that has already passed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -459,5 +518,6 @@ namespace Assignment6
         {
             dateTimePicker1.MinDate = DateTime.Now;
         }
+        #endregion
     }
 }

@@ -5,8 +5,8 @@
 /// </summary>
 /// 
 
-//TODO: Complete comments
-//FIXED: Add confirmations on Add, Change, Delete, Save
+//FIXED: Complete comments
+//FIXED: Add confirmations on Add, ChangeTask, DeleteTask, Save
 //FIXED: Pad leading zeroes in date/time in ListView
 //FIXED: fix basic sorting on DateTime, Priority and Description. Sorts ascending on date, but not time or anything else.
 //FIXED: fix what happends when you click New in file menu
@@ -20,4 +20,4 @@
 //FIXED: Fix tooltips!!!
 //TODO: Read up on nullable vs. non-nullable fields
 //TODO: Look at "Optionals"
-//TODO: Refactoring?
+//FIXED: Refactoring?

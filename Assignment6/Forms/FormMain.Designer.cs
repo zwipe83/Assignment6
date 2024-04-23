@@ -171,6 +171,7 @@
             // 
             // cmbPriority
             // 
+            cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPriority.Font = new Font("Segoe UI", 12F);
             cmbPriority.FormattingEnabled = true;
             cmbPriority.Location = new Point(601, 45);
@@ -213,6 +214,7 @@
             // 
             lstTasks.FullRowSelect = true;
             lstTasks.Location = new Point(6, 28);
+            lstTasks.MultiSelect = false;
             lstTasks.Name = "lstTasks";
             lstTasks.Size = new Size(1046, 314);
             lstTasks.Sorting = SortOrder.Ascending;

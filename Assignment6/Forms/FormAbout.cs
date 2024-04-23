@@ -11,6 +11,7 @@ namespace Assignment6.Forms
 {
     partial class FormAbout : Form
     {
+        #region Constructors
         public FormAbout()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace Assignment6.Forms
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
         }
-
+        #endregion
         #region Assembly Attribute Accessors
 
         public string AssemblyTitle

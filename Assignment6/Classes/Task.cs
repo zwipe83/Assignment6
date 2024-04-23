@@ -14,29 +14,29 @@ namespace Assignment6.Classes
     {
         #region Fields
         /// <summary>
-        /// 
+        /// Field for storing of task id, of type <see cref="Id"/>
         /// </summary>
         private Id _id;
         /// <summary>
-        /// 
+        /// Field for storing of task date, of type <see cref="Date"/>
         /// </summary>
         private Date _date;
         /// <summary>
-        /// 
+        /// Field for storing of task time, of type <see cref="Time"/>
         /// </summary>
         private Time _time;
         /// <summary>
-        /// 
+        /// Field for storing of task priority, of type <see cref="Priority"/>
         /// </summary>
         private Priority _priority;
         /// <summary>
-        /// 
+        /// Field for storing of task description, of type <see cref="Description"/>
         /// </summary>
         private Description _description;
         #endregion
         #region Properties
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_id"/>
         /// </summary>
         public Id Id
         {
@@ -50,7 +50,7 @@ namespace Assignment6.Classes
             }
         }
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_date"/>
         /// </summary>
         public Date Date
         {
@@ -64,7 +64,7 @@ namespace Assignment6.Classes
             }
         }
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_time"/>
         /// </summary>
         public Time Time
         {
@@ -78,7 +78,7 @@ namespace Assignment6.Classes
             }
         }
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_priority"/>
         /// </summary>
         public Priority Priority
         {
@@ -92,7 +92,7 @@ namespace Assignment6.Classes
             }
         }
         /// <summary>
-        /// 
+        /// Property for getting and setting value to private field <see cref="_description"/>
         /// </summary>
         public Description Description
         {
@@ -108,20 +108,20 @@ namespace Assignment6.Classes
         #endregion
         #region Constructors
         /// <summary>
-        /// 
+        /// Default Task constructor, creates an intance of <see cref="Task"/> with default values
         /// </summary>
         public Task() : this(new Id())
         {
         }
         /// <summary>
-        /// 
+        /// Task constructor, creates an intance of <see cref="Date"/> with a specific <see cref="Id"/> as parameter
         /// </summary>
         /// <param name="id"></param>
         public Task(Id id) : this(id, new Date())
         {
         }
         /// <summary>
-        /// 
+        /// Task constructor, creates an intance of <see cref="Date"/> with a specific <see cref="Id"/> and <see cref="Date"/> as parameters
         /// </summary>
         /// <param name="id"></param>
         /// <param name="date"></param>
@@ -129,7 +129,7 @@ namespace Assignment6.Classes
         {
         }
         /// <summary>
-        /// 
+        /// Task constructor, creates an intance of <see cref="Date"/> with a specific <see cref="Id"/>, <see cref="Date"/> and <see cref="Time"/> as parameters
         /// </summary>
         /// <param name="id"></param>
         /// <param name="date"></param>
@@ -138,7 +138,7 @@ namespace Assignment6.Classes
         {
         }
         /// <summary>
-        /// 
+        /// Task constructor, creates an intance of <see cref="Date"/> with a specific <see cref="Id"/>, <see cref="Date"/>, <see cref="Time"/> and <see cref="Priority"/> as parameters
         /// </summary>
         /// <param name="id"></param>
         /// <param name="date"></param>
@@ -148,7 +148,7 @@ namespace Assignment6.Classes
         {
         }
         /// <summary>
-        /// 
+        /// Task constructor, creates an intance of <see cref="Date"/> with a specific <see cref="Id"/>, <see cref="Date"/>, <see cref="Time"/>, <see cref="Priority"/> and <see cref="Description"/> as parameters
         /// </summary>
         /// <param name="id"></param>
         /// <param name="date"></param>
@@ -164,7 +164,7 @@ namespace Assignment6.Classes
             Description = description;
         }
         /// <summary>
-        /// 
+        /// Copy constructor. Copies from one instance of <see cref="Task"/> to a new instance of <see cref="Task"/>
         /// </summary>
         /// <param name="objToCopyFrom"></param>
         public Task(Task objToCopyFrom)
@@ -178,7 +178,7 @@ namespace Assignment6.Classes
         #endregion
         #region Overridden Methods
         /// <summary>
-        /// 
+        /// Overridden method for printing task date to a <see cref="string"/>
         /// </summary>
         /// <returns></returns>
         public override string ToString()
