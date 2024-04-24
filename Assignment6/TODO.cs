@@ -20,4 +20,4 @@
 //FIXED: Fix tooltips!!!
 //FIXED: Look at "Optionals"
 //FIXED: Refactoring?
-//TODO: Whats happens when you load a file without correct token?
+//FIXED: Whats happens when you load a file without correct token?

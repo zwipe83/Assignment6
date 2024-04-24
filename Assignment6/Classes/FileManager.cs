@@ -136,6 +136,10 @@ namespace Assignment6.Classes
                         taskList.Add(task);
                     }
                 }
+                else
+                {
+                    ok = false;
+                }
             }
             catch
             {

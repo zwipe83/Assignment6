@@ -139,7 +139,7 @@ namespace Assignment6.Classes
                 }
                 else
                 {
-                    throw new Exception($"Failed to read the file:\n\n{fullPath}");
+                    throw new Exception($"Failed to read the file:\n\n{fullPath}\n\nBad application token and/or file version?");
                 }
             }
             catch (Exception ex)
@@ -174,7 +174,7 @@ namespace Assignment6.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{TaskList}"; //TODO: What does this return?
+            return $"{TaskList}";
         }
         #endregion
     }
