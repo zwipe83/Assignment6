@@ -54,6 +54,9 @@ namespace Assignment6.Forms
         /// </summary>
         private void InitGUI()
         {
+            //Set icon
+            this.Icon = Properties.Resources.AppIcon;
+
             txtToDo.Text = TaskCopy.Description.ToString();
 
             InitComboBox();

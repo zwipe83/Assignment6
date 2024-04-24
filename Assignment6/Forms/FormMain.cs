@@ -8,6 +8,8 @@
 using Assignment6.Classes;
 using Assignment6.Enums;
 using Assignment6.Forms;
+using System.Drawing.Printing;
+using System.Threading.Tasks;
 using static Assignment6.Helpers.EnumHelper;
 
 namespace Assignment6
@@ -56,6 +58,9 @@ namespace Assignment6
         {
             //Create new instance of TaskManager
             _taskManager = new TaskManager();
+
+            //Set icon
+            this.Icon = Properties.Resources.AppIcon;
 
             //Disable Add button
             btnAddTask.Enabled = false;
@@ -302,10 +307,12 @@ namespace Assignment6
             if (lstTasks.Items.Count > 0)
             {
                 saveDataFileToolStripMenuItem.Enabled = true;
+                printToolStripMenuItem.Enabled = true;
             }
             else
             {
                 saveDataFileToolStripMenuItem.Enabled = false;
+                printToolStripMenuItem.Enabled = false;
             }
         }
         /// <summary>
@@ -518,6 +525,50 @@ namespace Assignment6
         {
             dateTimePicker1.MinDate = DateTime.Now;
         }
+        /// <summary>
+        /// Print current TaskList
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PrintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a PrintDocument object
+            PrintDocument printDocument = new PrintDocument();
+
+            // Handle the PrintPage event
+            printDocument.PrintPage += (s, ev) =>
+            {
+                Graphics graphics = ev.Graphics;
+
+                // Set the font and margin values
+                Font font = new Font("Courier New", 12);
+                int margin = 50;
+                int yPos = margin;
+
+                // Add headers
+                graphics.DrawString($"{"Date",-12}{"Time",-10}{"Priority",-15}{"Description"}", font, Brushes.Black, margin, yPos);
+                
+                yPos += 20;
+
+                // Iterate TaskList
+                foreach (Assignment6.Classes.Task task in TaskManager.TaskList)
+                {
+                    graphics.DrawString($"{task.Date,-12}{task.Time,-10}{task.Priority,-15}{task.Description}", font, Brushes.Black, margin, yPos);
+
+                    yPos += 20;
+                }
+            };
+
+            // Display the PrintDialog
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
         #endregion
     }
 }

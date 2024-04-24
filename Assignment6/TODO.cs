@@ -19,5 +19,5 @@
 //FIXED: Confirmation on Open/Save file?
 //FIXED: Fix tooltips!!!
 //TODO: Read up on nullable vs. non-nullable fields
-//TODO: Look at "Optionals"
+//FIXED: Look at "Optionals"
 //FIXED: Refactoring?

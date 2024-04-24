@@ -36,6 +36,8 @@
             openDataFileToolStripMenuItem = new ToolStripMenuItem();
             saveDataFileToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
+            printToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
@@ -69,8 +71,9 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, toolStripSeparator1, openDataFileToolStripMenuItem, saveDataFileToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, toolStripSeparator1, openDataFileToolStripMenuItem, saveDataFileToolStripMenuItem, toolStripSeparator2, printToolStripMenuItem, toolStripSeparator3, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
             // 
@@ -107,6 +110,19 @@
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(188, 6);
+            // 
+            // printToolStripMenuItem
+            // 
+            printToolStripMenuItem.Name = "printToolStripMenuItem";
+            printToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
+            printToolStripMenuItem.Size = new Size(191, 22);
+            printToolStripMenuItem.Text = "Print";
+            printToolStripMenuItem.Click += PrintToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(188, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -328,5 +344,7 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Timer timer2;
+        private ToolStripMenuItem printToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator3;
     }
 }

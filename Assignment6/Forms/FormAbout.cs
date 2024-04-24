@@ -15,6 +15,10 @@ namespace Assignment6.Forms
         public FormAbout()
         {
             InitializeComponent();
+
+            //Set icon
+            this.Icon = Properties.Resources.AppIcon;
+
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
