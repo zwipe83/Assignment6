@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Filename: Priority.cs
+/// Filename: TaskPriority.cs
 /// Created on: 2024-04-20 00:00:00
 /// Author: Samuel Jeffman
 /// </summary>
@@ -13,15 +13,15 @@ namespace Assignment6.Classes
     /// <summary>
     /// 
     /// </summary>
-    public class Priority
+    public class TaskPriority
     {
         #region Fields
         /// <summary>
         /// Field for storing of task priority, of type <see cref="PriorityType"/>
         /// </summary>
-        private PriorityType _taskPriority;
+        private PriorityType _priority;
         /// <summary>
-        /// Property for getting and setting value to private field <see cref="_taskPriority"/>
+        /// Property for getting and setting value to private field <see cref="_priority"/>
         /// </summary>
         private static readonly PriorityType defaultPriority = PriorityType.Normal;
         #endregion
@@ -29,26 +29,26 @@ namespace Assignment6.Classes
         /// <summary>
         /// 
         /// </summary>
-        public PriorityType TaskPriority
+        public PriorityType Priority
         {
-            get => _taskPriority;
-            protected set => _taskPriority = value;
+            get => _priority;
+            protected set => _priority = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// Default Priority constructor, creates an intance of <see cref="Priority"/> with default values
+        /// Default Priority constructor, creates an intance of <see cref="Classes.TaskPriority"/> with default values
         /// </summary>
-        public Priority() : this(defaultPriority)
+        public TaskPriority() : this(defaultPriority)
         {
         }
         /// <summary>
-        /// Priority constructor, creates an intance of <see cref="Priority"/> with a specific <see cref="PriorityType"/> as parameter
+        /// Priority constructor, creates an intance of <see cref="Classes.TaskPriority"/> with a specific <see cref="PriorityType"/> as parameter
         /// </summary>
         /// <param name="priority"></param>
-        public Priority(PriorityType priority)
+        public TaskPriority(PriorityType priority)
         {
-            TaskPriority = priority;
+            Priority = priority;
         }
         #endregion
         #region Overridden Methods
@@ -58,7 +58,7 @@ namespace Assignment6.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return GetDescription(TaskPriority);
+            return GetDescription(Priority);
         }
         #endregion
     }

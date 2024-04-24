@@ -73,7 +73,7 @@ namespace Assignment6.Classes
         /// Methods deletes a task of type <see cref="Task"/> from <see cref="TaskManager.TaskList"/>
         /// </summary>
         /// <param name="taskId"></param>
-        public void DeleteTask(Id taskId)
+        public void DeleteTask(TaskId taskId)
         {
             int index = TaskList.FindIndex(item => item.Id == taskId);
 
@@ -87,7 +87,7 @@ namespace Assignment6.Classes
         /// </summary>
         /// <param name="taskId"></param>
         /// <returns></returns>
-        public Task GetTask(Id taskId)
+        public Task GetTask(TaskId taskId)
         {
             foreach (Task task in TaskList)
             {

@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Filename: Date.cs
+/// Filename: TaskDate.cs
 /// Created on: 2024-04-20 00:00:00
 /// Author: Samuel Jeffman
 /// </summary>
@@ -10,38 +10,38 @@ namespace Assignment6.Classes
     /// <summary>
     /// 
     /// </summary>
-    public class Date
+    public class TaskDate
     {
         #region Fields
         /// <summary>
         /// Field for storing of task date, of type <see cref="DateTime"/>
         /// </summary>
-        private DateTime _taskDate;
+        private DateTime _date;
         #endregion
         #region Properties
         /// <summary>
-        /// Property for getting and setting value to private field <see cref="_taskDate"/>
+        /// Property for getting and setting value to private field <see cref="_date"/>
         /// </summary>
-        public DateTime TaskDate
+        public DateTime Date
         {
-            get => _taskDate;
-            protected set => _taskDate = value;
+            get => _date;
+            protected set => _date = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// Default Date constructor, creates an intance of <see cref="Date"/> with default values
+        /// Default Date constructor, creates an intance of <see cref="Classes.TaskDate"/> with default values
         /// </summary>
-        public Date() : this(new DateTime())
+        public TaskDate() : this(new DateTime())
         {
         }
         /// <summary>
-        /// Date constructor, creates an intance of <see cref="Date"/> with a specific <see cref="DateTime"/> as parameter
+        /// Date constructor, creates an intance of <see cref="Classes.TaskDate"/> with a specific <see cref="DateTime"/> as parameter
         /// </summary>
         /// <param name="date"></param>
-        public Date(DateTime date)
+        public TaskDate(DateTime date)
         {
-            TaskDate = date;
+            Date = date;
         }
         #endregion
         #region Overridden Methods
@@ -51,7 +51,7 @@ namespace Assignment6.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return TaskDate.ToString("yyyy-MM-dd");
+            return Date.ToString("yyyy-MM-dd");
         }
         #endregion
     }

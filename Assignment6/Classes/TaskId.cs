@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Filename: Id.cs
+/// Filename: TaskId.cs
 /// Created on: 2024-04-20 00:00:00
 /// Author: Samuel Jeffman
 /// </summary>
@@ -10,38 +10,38 @@ namespace Assignment6.Classes
     /// <summary>
     /// 
     /// </summary>
-    public class Id
+    public class TaskId
     {
         #region Fields
         /// <summary>
         /// Field for storing of task id, of type <see cref="Guid"/>
         /// </summary>
-        private Guid _taskId;
+        private Guid _id;
         #endregion
         #region Properties
         /// <summary>
-        /// Property for getting and setting value to private field <see cref="_taskId"/>
+        /// Property for getting and setting value to private field <see cref="_id"/>
         /// </summary>
-        public Guid TaskId
+        public Guid Id
         {
-            get => _taskId;
-            protected set => _taskId = value;
+            get => _id;
+            protected set => _id = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// Default Id constructor, creates an intance of <see cref="Id"/> with default values
+        /// Default Id constructor, creates an intance of <see cref="Classes.TaskId"/> with default values
         /// </summary>
-        public Id() : this(Guid.NewGuid())
+        public TaskId() : this(Guid.NewGuid())
         {
         }
         /// <summary>
-        /// Id constructor, creates an intance of <see cref="Id"/> with a specific <see cref="Guid"/> as parameter
+        /// Id constructor, creates an intance of <see cref="Classes.TaskId"/> with a specific <see cref="Guid"/> as parameter
         /// </summary>
         /// <param name="id"></param>
-        public Id(Guid id)
+        public TaskId(Guid id)
         {
-            TaskId = id;
+            Id = id;
         }
         #endregion
         #region Overridden Methods
@@ -51,7 +51,7 @@ namespace Assignment6.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return TaskId.ToString();
+            return Id.ToString();
         }
         #endregion
     }

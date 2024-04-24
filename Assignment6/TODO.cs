@@ -13,11 +13,11 @@
 //FIXED: Fix menu to look like documentation
 //FIXED: Implement SaveFileDialog and OpenFileDialog
 //FIXED: Go over all Properties setters, and maybe modify access
-//TODO: Rename classes Id, Date, Time, Priority and Description?
+//FIXED: Rename classes Id, Date, Time, Priority and Description?
 //FIXED: Add null checks for example where _taskManager is used? Property TaskManager returns a new TaskManager if null
 //FIXED: Fix "About..."
 //FIXED: Confirmation on Open/Save file?
 //FIXED: Fix tooltips!!!
-//TODO: Read up on nullable vs. non-nullable fields
 //FIXED: Look at "Optionals"
 //FIXED: Refactoring?
+//TODO: Whats happens when you load a file without correct token?

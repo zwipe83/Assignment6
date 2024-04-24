@@ -11,8 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Images\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

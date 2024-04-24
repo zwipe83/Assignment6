@@ -54,14 +54,14 @@ namespace Assignment6.Classes
 
                 for (int i = 0; i < taskList.Count; i++)
                 {
-                    writer.WriteLine(taskList[i].Date.TaskDate.Year);
-                    writer.WriteLine(taskList[i].Date.TaskDate.Month);
-                    writer.WriteLine(taskList[i].Date.TaskDate.Day);
-                    writer.WriteLine(taskList[i].Time.TaskTime.Hours);
-                    writer.WriteLine(taskList[i].Time.TaskTime.Minutes);
-                    writer.WriteLine(taskList[i].Time.TaskTime.Seconds);
-                    writer.WriteLine(taskList[i].Priority.TaskPriority.ToString());
-                    writer.WriteLine(taskList[i].Description.TaskDescription);
+                    writer.WriteLine(taskList[i].Date.Date.Year);
+                    writer.WriteLine(taskList[i].Date.Date.Month);
+                    writer.WriteLine(taskList[i].Date.Date.Day);
+                    writer.WriteLine(taskList[i].Time.Time.Hours);
+                    writer.WriteLine(taskList[i].Time.Time.Minutes);
+                    writer.WriteLine(taskList[i].Time.Time.Seconds);
+                    writer.WriteLine(taskList[i].Priority.Priority.ToString());
+                    writer.WriteLine(taskList[i].Description.Description);
                 }
             }
             catch
@@ -128,10 +128,10 @@ namespace Assignment6.Classes
                         string priority = reader.ReadLine() ?? "Normal";
                         string description = reader.ReadLine() ?? string.Empty;
 
-                        task.Date = new Date(new DateTime(year, month, day));
-                        task.Time = new Time(new TimeSpan(hour, minute, second));
-                        task.Priority = new Priority((PriorityType)Enum.Parse(typeof(PriorityType), priority));
-                        task.Description = new Description(description);
+                        task.Date = new TaskDate(new DateTime(year, month, day));
+                        task.Time = new TaskTime(new TimeSpan(hour, minute, second));
+                        task.Priority = new TaskPriority((PriorityType)Enum.Parse(typeof(PriorityType), priority));
+                        task.Description = new TaskDescription(description);
 
                         taskList.Add(task);
                     }

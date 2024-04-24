@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Filename: Time.cs
+/// Filename: TaskTime.cs
 /// Created on: 2024-04-20 00:00:00
 /// Author: Samuel Jeffman
 /// </summary>
@@ -10,38 +10,38 @@ namespace Assignment6.Classes
     /// <summary>
     /// 
     /// </summary>
-    public class Time
+    public class TaskTime
     {
         #region Fields
         /// <summary>
         /// Field for storing of task time, of type <see cref="TimeSpan"/>
         /// </summary>
-        private TimeSpan _taskTime;
+        private TimeSpan _time;
         #endregion
         #region Properties
         /// <summary>
-        /// Property for getting and setting value to private field <see cref="_taskTime"/>
+        /// Property for getting and setting value to private field <see cref="_time"/>
         /// </summary>
-        public TimeSpan TaskTime
+        public TimeSpan Time
         {
-            get => _taskTime;
-            protected set => _taskTime = value;
+            get => _time;
+            protected set => _time = value;
         }
         #endregion
         #region Constructors
         /// <summary>
-        /// Default Time constructor, creates an intance of <see cref="Time"/> with default values
+        /// Default Time constructor, creates an intance of <see cref="Classes.TaskTime"/> with default values
         /// </summary>
-        public Time() : this(new TimeSpan())
+        public TaskTime() : this(new TimeSpan())
         {
         }
         /// <summary>
-        /// Time constructor, creates an intance of <see cref="Time"/> with a specific <see cref="TimeSpan"/> as parameter
+        /// Time constructor, creates an intance of <see cref="Classes.TaskTime"/> with a specific <see cref="TimeSpan"/> as parameter
         /// </summary>
         /// <param name="time"></param>
-        public Time(TimeSpan time)
+        public TaskTime(TimeSpan time)
         {
-            TaskTime = time;
+            Time = time;
         }
         #endregion
         #region Overridden Methods
@@ -51,7 +51,7 @@ namespace Assignment6.Classes
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{TaskTime.Hours:D2}:{TaskTime.Minutes:D2}:{TaskTime.Seconds:D2}";
+            return $"{Time.Hours:D2}:{Time.Minutes:D2}:{Time.Seconds:D2}";
         }
         #endregion
     }

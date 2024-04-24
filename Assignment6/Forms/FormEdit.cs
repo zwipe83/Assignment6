@@ -70,7 +70,7 @@ namespace Assignment6.Forms
         {
             string[] priorityDescriptions = GetPriorityDescriptions();
             SetPriorityDescriptions(priorityDescriptions, cmbPriority);
-            cmbPriority.SelectedIndex = (int)TaskCopy.Priority.TaskPriority;
+            cmbPriority.SelectedIndex = (int)TaskCopy.Priority.Priority;
         }
 
         /// <summary>
@@ -80,8 +80,8 @@ namespace Assignment6.Forms
         {
             dateTimePicker1.CustomFormat = "yyyy-MM-dd    HH:mm:ss";
 
-            DateTime date = TaskCopy.Date.TaskDate;
-            TimeSpan time = TaskCopy.Time.TaskTime;
+            DateTime date = TaskCopy.Date.Date;
+            TimeSpan time = TaskCopy.Time.Time;
 
             DateTime dateTime = date.Add(time); // Combine the date and time
 
@@ -123,10 +123,10 @@ namespace Assignment6.Forms
             DialogResult result = MessageBox.Show("Are you sure you want to save changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                TaskCopy.Date = new Date(dateTimePicker1.Value.Date);
-                TaskCopy.Time = new Time(dateTimePicker1.Value.TimeOfDay);
-                TaskCopy.Priority = new Priority((PriorityType)cmbPriority.SelectedIndex);
-                TaskCopy.Description = new Description(txtToDo.Text);
+                TaskCopy.Date = new TaskDate(dateTimePicker1.Value.Date);
+                TaskCopy.Time = new TaskTime(dateTimePicker1.Value.TimeOfDay);
+                TaskCopy.Priority = new TaskPriority((PriorityType)cmbPriority.SelectedIndex);
+                TaskCopy.Description = new TaskDescription(txtToDo.Text);
 
                 DialogResult = DialogResult.OK;
 

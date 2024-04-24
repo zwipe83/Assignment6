@@ -171,11 +171,11 @@ namespace Assignment6
         /// <param name="e"></param>
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            Id id = new Id();
-            Date date = new Date(dateTimePicker1.Value.Date);
-            Time time = new Time(dateTimePicker1.Value.TimeOfDay);
-            Priority priority = new Priority((PriorityType)cmbPriority.SelectedIndex);
-            Description description = new Description(txtToDo.Text);
+            TaskId id = new TaskId();
+            TaskDate date = new TaskDate(dateTimePicker1.Value.Date);
+            TaskTime time = new TaskTime(dateTimePicker1.Value.TimeOfDay);
+            TaskPriority priority = new TaskPriority((PriorityType)cmbPriority.SelectedIndex);
+            TaskDescription description = new TaskDescription(txtToDo.Text);
 
             Assignment6.Classes.Task task = new Assignment6.Classes.Task(id, date, time, priority, description);
 
@@ -272,7 +272,7 @@ namespace Assignment6
                 return; //Nothing selected
             }
 
-            Id id = (Id)lstTasks.SelectedItems[0].Tag;
+            TaskId id = (TaskId)lstTasks.SelectedItems[0].Tag;
 
             if (id == null)
             {
@@ -368,7 +368,7 @@ namespace Assignment6
                 return; //Nothing selected
             }
 
-            Id id = (Id)lstTasks.SelectedItems[0].Tag;
+            TaskId id = (TaskId)lstTasks.SelectedItems[0].Tag;
 
             if (id == null)
             {

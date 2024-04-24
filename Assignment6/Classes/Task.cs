@@ -16,29 +16,29 @@ namespace Assignment6.Classes
         /// <summary>
         /// Field for storing of task id, of type <see cref="Id"/>
         /// </summary>
-        private Id _id;
+        private TaskId _id;
         /// <summary>
         /// Field for storing of task date, of type <see cref="Date"/>
         /// </summary>
-        private Date _date;
+        private TaskDate _date;
         /// <summary>
         /// Field for storing of task time, of type <see cref="Time"/>
         /// </summary>
-        private Time _time;
+        private TaskTime _time;
         /// <summary>
         /// Field for storing of task priority, of type <see cref="Priority"/>
         /// </summary>
-        private Priority _priority;
+        private TaskPriority _priority;
         /// <summary>
         /// Field for storing of task description, of type <see cref="Description"/>
         /// </summary>
-        private Description _description;
+        private TaskDescription _description;
         #endregion
         #region Properties
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_id"/>
         /// </summary>
-        public Id Id
+        public TaskId Id
         {
             get => _id;
             protected set
@@ -52,7 +52,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_date"/>
         /// </summary>
-        public Date Date
+        public TaskDate Date
         {
             get => _date;
             internal set
@@ -66,7 +66,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_time"/>
         /// </summary>
-        public Time Time
+        public TaskTime Time
         {
             get => _time;
             internal set
@@ -80,7 +80,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_priority"/>
         /// </summary>
-        public Priority Priority
+        public TaskPriority Priority
         {
             get => _priority;
             internal set
@@ -94,7 +94,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_description"/>
         /// </summary>
-        public Description Description
+        public TaskDescription Description
         {
             get => _description;
             internal set
@@ -110,14 +110,14 @@ namespace Assignment6.Classes
         /// <summary>
         /// Default Task constructor, creates an intance of <see cref="Task"/> with default values
         /// </summary>
-        public Task() : this(new Id())
+        public Task() : this(new TaskId())
         {
         }
         /// <summary>
         /// Task constructor, creates an intance of <see cref="Date"/> with a specific <see cref="Id"/> as parameter
         /// </summary>
         /// <param name="id"></param>
-        public Task(Id id) : this(id, new Date())
+        public Task(TaskId id) : this(id, new TaskDate())
         {
         }
         /// <summary>
@@ -125,7 +125,7 @@ namespace Assignment6.Classes
         /// </summary>
         /// <param name="id"></param>
         /// <param name="date"></param>
-        public Task(Id id, Date date) : this(id, date, new Time())
+        public Task(TaskId id, TaskDate date) : this(id, date, new TaskTime())
         {
         }
         /// <summary>
@@ -134,7 +134,7 @@ namespace Assignment6.Classes
         /// <param name="id"></param>
         /// <param name="date"></param>
         /// <param name="time"></param>
-        public Task(Id id, Date date, Time time) : this(id, date, time, new Priority())
+        public Task(TaskId id, TaskDate date, TaskTime time) : this(id, date, time, new TaskPriority())
         {
         }
         /// <summary>
@@ -144,7 +144,7 @@ namespace Assignment6.Classes
         /// <param name="date"></param>
         /// <param name="time"></param>
         /// <param name="priority"></param>
-        public Task(Id id, Date date, Time time, Priority priority) : this(id, date, time, priority, new Description())
+        public Task(TaskId id, TaskDate date, TaskTime time, TaskPriority priority) : this(id, date, time, priority, new TaskDescription())
         {
         }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Assignment6.Classes
         /// <param name="time"></param>
         /// <param name="priority"></param>
         /// <param name="description"></param>
-        public Task(Id id, Date date, Time time, Priority priority, Description description)
+        public Task(TaskId id, TaskDate date, TaskTime time, TaskPriority priority, TaskDescription description)
         {
             Id = id;
             Date = date;

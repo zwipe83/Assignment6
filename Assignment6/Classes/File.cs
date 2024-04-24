@@ -76,14 +76,14 @@ namespace Assignment6.Classes
         {
         }
         /// <summary>
-        /// File constructor, creates an intance of <see cref="Description"/> with a specific path <see cref="string"/> and default file name as parameters
+        /// File constructor, creates an intance of <see cref="TaskDescription"/> with a specific path <see cref="string"/> and default file name as parameters
         /// </summary>
         /// <param name="path"></param>
         public File(string path) : this(path, defaultFileName)
         {
         }
         /// <summary>
-        /// File constructor, creates an intance of <see cref="Description"/> with a specific path <see cref="string"/> and file name <see cref="string"/> as parameters
+        /// File constructor, creates an intance of <see cref="TaskDescription"/> with a specific path <see cref="string"/> and file name <see cref="string"/> as parameters
         /// </summary>
         /// <param name="path"></param>
         /// <param name="fileName"></param>
