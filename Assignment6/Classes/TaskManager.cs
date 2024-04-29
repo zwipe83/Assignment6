@@ -147,25 +147,6 @@ namespace Assignment6.Classes
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-        /// <summary>
-        /// Method saves current <see cref="TaskList"/> as serialized json to provided file of type <see cref="File"/>
-        /// </summary>
-        /// <param name="file"></param>
-        public void SaveToJsonFile(File file)
-        {
-            FileManager fileManager = new FileManager();
-            fileManager.SaveToJsonFile(file, TaskList);
-        }
-        /// <summary>
-        /// Method reads to current <see cref="TaskList"/> from provided file of type <see cref="File"/> as deserialized json
-        /// </summary>
-        /// <param name="file"></param>
-        public void ReadFromJsonFile(File file)
-        {
-            FileManager fileManager = new FileManager();
-            fileManager.ReadFromJsonFile(file, TaskList);
-        }
-
         #endregion
         #region Overridden Methods
         /// <summary>

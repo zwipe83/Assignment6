@@ -6,7 +6,6 @@
 /// 
 
 using Assignment6.Enums;
-using System.Text.Json;
 
 namespace Assignment6.Classes
 {
@@ -154,31 +153,6 @@ namespace Assignment6.Classes
                 }
             }
             return ok;
-        }
-        /// <summary>
-        /// Alternative method for saving data. Data is serialized to Json, then written to <see cref="File"/>
-        /// </summary>
-        /// <param name="file"></param>
-        /// <param name="taskList"></param>
-        public void SaveToJsonFile(File file, List<Task> taskList)
-        {
-            string fullPath = Path.Combine(file.Path, file.Name);
-            string json = JsonSerializer.Serialize(taskList);
-            System.IO.File.WriteAllText(fullPath, json);
-        }
-        /// <summary>
-        /// Alternative method for reading data. Data is deserialized from Json, then stored in <see cref="List{Task}"/> as instances of <see cref="Task"/>
-        /// </summary>
-        /// <param name="file"></param>
-        /// <param name="taskList"></param>
-        public void ReadFromJsonFile(File file, List<Task> taskList)
-        {
-            string fullPath = Path.Combine(file.Path, file.Name);
-            if (System.IO.File.Exists(fullPath))
-            {
-                string json = System.IO.File.ReadAllText(fullPath);
-                taskList.AddRange(JsonSerializer.Deserialize<List<Task>>(json));
-            }
         }
         #endregion
     }

@@ -9,7 +9,6 @@ using Assignment6.Classes;
 using Assignment6.Enums;
 using Assignment6.Forms;
 using System.Drawing.Printing;
-using System.Threading.Tasks;
 using static Assignment6.Helpers.EnumHelper;
 
 namespace Assignment6
@@ -429,10 +428,6 @@ namespace Assignment6
                 {
                     //No need to do anything...
                 }
-
-                //Json method, alternative
-                //Classes.File file2 = new Classes.File(@"C:\files", "save1.json");
-                //TaskManager.SaveToJsonFile(file2);
             }
             catch (Exception ex)
             {
@@ -479,11 +474,6 @@ namespace Assignment6
                 {
                     //No need to do anything...
                 }
-
-                //Json method, alternative
-                //Classes.File file2 = new Classes.File(@"C:\files", "save1.json");
-                //TaskManager.ReadFromJsonFile(file2);
-                //UpdateListView();
             }
             catch (Exception ex)
             {
@@ -538,6 +528,9 @@ namespace Assignment6
             // Handle the PrintPage event
             printDocument.PrintPage += (s, ev) =>
             {
+                if (ev.Graphics == null)
+                    return;
+
                 Graphics graphics = ev.Graphics;
 
                 // Set the font and margin values
@@ -547,7 +540,7 @@ namespace Assignment6
 
                 // Add headers
                 graphics.DrawString($"{"Date",-12}{"Time",-10}{"Priority",-15}{"Description"}", font, Brushes.Black, margin, yPos);
-                
+
                 yPos += 20;
 
                 // Iterate TaskList

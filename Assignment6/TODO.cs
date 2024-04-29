@@ -5,7 +5,9 @@
 /// </summary>
 /// 
 
-//FIXED: Complete comments
+//TODO: Complete comments of classes
+//TODO: Complete comments of "returns"
+//TODO: Remove unsued code
 //FIXED: Add confirmations on Add, ChangeTask, DeleteTask, Save
 //FIXED: Pad leading zeroes in date/time in ListView
 //FIXED: fix basic sorting on DateTime, Priority and Description. Sorts ascending on date, but not time or anything else.
