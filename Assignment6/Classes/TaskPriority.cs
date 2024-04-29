@@ -11,7 +11,7 @@ using static Assignment6.Helpers.EnumHelper;
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task priority.
     /// </summary>
     public class TaskPriority
     {
@@ -55,7 +55,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task priority to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task priority.</returns>
         public override string ToString()
         {
             return GetDescription(Priority);

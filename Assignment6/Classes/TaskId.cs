@@ -8,7 +8,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task id.
     /// </summary>
     public class TaskId
     {
@@ -48,7 +48,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task id to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task id.</returns>
         public override string ToString()
         {
             return Id.ToString();

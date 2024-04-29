@@ -8,7 +8,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task with various properties such as id, date, time, priority, and description.
     /// </summary>
     public class Task
     {
@@ -180,7 +180,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task date to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task.</returns>
         public override string ToString()
         {
             return $"{Date} {Time} {Priority} {Description}";

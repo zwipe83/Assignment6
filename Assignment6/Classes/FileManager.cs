@@ -10,7 +10,7 @@ using Assignment6.Enums;
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a file manager responsible for saving and reading task lists to/from a file.
     /// </summary>
     internal class FileManager
     {

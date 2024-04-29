@@ -8,7 +8,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task date.
     /// </summary>
     public class TaskDate
     {
@@ -48,7 +48,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task date to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task date.</returns>
         public override string ToString()
         {
             return Date.ToString("yyyy-MM-dd");

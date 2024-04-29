@@ -8,7 +8,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task time.
     /// </summary>
     public class TaskTime
     {
@@ -48,7 +48,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task time to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task time.</returns>
         public override string ToString()
         {
             return $"{Time.Hours:D2}:{Time.Minutes:D2}:{Time.Seconds:D2}";

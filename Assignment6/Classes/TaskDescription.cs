@@ -8,7 +8,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task description.
     /// </summary>
     public class TaskDescription
     {
@@ -58,7 +58,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task description to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task description.</returns>
         public override string ToString()
         {
             return Description.ToString();

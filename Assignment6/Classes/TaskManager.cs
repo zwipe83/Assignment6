@@ -7,7 +7,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a task manager that manages a list of tasks.
     /// </summary>
     internal class TaskManager
     {
@@ -152,7 +152,7 @@ namespace Assignment6.Classes
         /// <summary>
         /// Overridden method for printing task list to a <see cref="string"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A string representation of the task list.</returns>
         public override string ToString()
         {
             return $"{TaskList}";

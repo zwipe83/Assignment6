@@ -8,7 +8,7 @@
 namespace Assignment6.Classes
 {
     /// <summary>
-    /// 
+    /// Represents a file with its path and name.
     /// </summary>
     internal class File
     {

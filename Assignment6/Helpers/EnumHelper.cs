@@ -20,7 +20,7 @@ namespace Assignment6.Helpers
         /// Get description from provided enum value
         /// </summary>
         /// <param name="value"></param>
-        /// <returns></returns>
+        /// <returns>Description of the enum value. If null return enum value.</returns>
         public static string GetDescription(Enum value)
         {
             FieldInfo? fi = value.GetType().GetField(value.ToString());
