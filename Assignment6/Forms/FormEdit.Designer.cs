@@ -36,13 +36,14 @@
             lblToDo = new Label();
             lblPriority = new Label();
             lblDateAndTime = new Label();
-            timer2 = new System.Windows.Forms.Timer(components);
+            updateMinDateTimer = new System.Windows.Forms.Timer(components);
+            btnCloseEdit = new Button();
             SuspendLayout();
             // 
             // btnSaveTask
             // 
             btnSaveTask.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSaveTask.Location = new Point(148, 112);
+            btnSaveTask.Location = new Point(148, 118);
             btnSaveTask.Name = "btnSaveTask";
             btnSaveTask.Size = new Size(96, 31);
             btnSaveTask.TabIndex = 12;
@@ -107,17 +108,29 @@
             lblDateAndTime.TabIndex = 8;
             lblDateAndTime.Text = "Date and time";
             // 
-            // timer2
+            // updateMinDateTimer
             // 
-            timer2.Enabled = true;
-            timer2.Interval = 60000;
-            timer2.Tick += timer2_Tick;
+            updateMinDateTimer.Enabled = true;
+            updateMinDateTimer.Interval = 60000;
+            updateMinDateTimer.Tick += updateMinDateTimer_Tick;
+            // 
+            // btnCloseEdit
+            // 
+            btnCloseEdit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCloseEdit.Location = new Point(677, 118);
+            btnCloseEdit.Name = "btnCloseEdit";
+            btnCloseEdit.Size = new Size(96, 31);
+            btnCloseEdit.TabIndex = 12;
+            btnCloseEdit.Text = "Cancel";
+            btnCloseEdit.UseVisualStyleBackColor = true;
+            btnCloseEdit.Click += btnCloseEdit_Click;
             // 
             // FormEdit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(793, 165);
+            Controls.Add(btnCloseEdit);
             Controls.Add(btnSaveTask);
             Controls.Add(txtToDo);
             Controls.Add(cmbPriority);
@@ -125,6 +138,7 @@
             Controls.Add(lblToDo);
             Controls.Add(lblPriority);
             Controls.Add(lblDateAndTime);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "FormEdit";
             Text = "Edit task";
             ResumeLayout(false);
@@ -140,6 +154,7 @@
         private Label lblToDo;
         private Label lblPriority;
         private Label lblDateAndTime;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer updateMinDateTimer;
+        private Button btnCloseEdit;
     }
 }

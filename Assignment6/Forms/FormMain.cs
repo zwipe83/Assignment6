@@ -19,16 +19,19 @@ namespace Assignment6
     public partial class FormMain : Form
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of task manager, of type <see cref="TaskManager"/>
         /// </summary>
         private TaskManager _taskManager;
+
         /// <summary>
         /// Default priosrity of type <see cref="PriorityType"/>
         /// </summary>
         private readonly PriorityType defaultPriority = PriorityType.Normal;
         #endregion
         #region Properties
+
         /// <summary>
         /// Property for getting object of type <see cref="_taskManager"/>
         /// </summary>
@@ -39,6 +42,7 @@ namespace Assignment6
 
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -50,6 +54,7 @@ namespace Assignment6
         }
         #endregion
         #region Private Methods
+
         /// <summary>
         /// Initializes the GUI with a more aesthetically pleasing layout.
         /// </summary>
@@ -73,15 +78,17 @@ namespace Assignment6
             UpdateFileMenu();
             UpdateButtons();
         }
+
         /// <summary>
         /// Init datetimepicker
         /// </summary>
         private void InitDateTimepicker()
         {
             //Configure dateTimePicker
-            dateTimePicker1.CustomFormat = "yyy-MM-dd    HH:mm:ss";
+            dateTimePicker1.CustomFormat = "yyy-MM-dd    HH:mm";
             dateTimePicker1.MinDate = DateTime.Now;
         }
+
         /// <summary>
         /// Init combobox with priority descriptions
         /// </summary>
@@ -94,6 +101,7 @@ namespace Assignment6
             //Set default value to combobox
             cmbPriority.SelectedIndex = (int)defaultPriority;
         }
+
         /// <summary>
         /// Set default values in gui controls
         /// </summary>
@@ -154,6 +162,7 @@ namespace Assignment6
 
             return priorityDescriptions;
         }
+
         /// <summary>
         /// Set priority descriptions to provided <see cref="ComboBox"/>
         /// </summary>
@@ -163,6 +172,7 @@ namespace Assignment6
         {
             comboBox.DataSource = priorityDescriptions;
         }
+
         /// <summary>
         /// Adds a <see cref="Task"/> to a collection of type <see cref="TaskManager.TaskList"/>
         /// </summary>
@@ -185,6 +195,7 @@ namespace Assignment6
             UpdateFileMenu();
             UpdateButtons();
         }
+
         /// <summary>
         /// Reset controls
         /// </summary>
@@ -215,15 +226,17 @@ namespace Assignment6
                 lstTasks.Items.Add(listViewItem);
             }
         }
+
         /// <summary>
         /// Timer updates time label in gui
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
+        private void updateClockTimer_Tick(object sender, EventArgs e)
         {
             lblTimer.Text = GetNowToString("HH:mm:ss");
         }
+
         /// <summary>
         /// Get <see cref="DateTime.Now"/> as string
         /// </summary>
@@ -232,6 +245,7 @@ namespace Assignment6
         {
             return DateTime.Now.ToString(format);
         }
+
         /// <summary>
         /// Open about dialog
         /// </summary>
@@ -242,6 +256,7 @@ namespace Assignment6
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
         }
+
         /// <summary>
         /// Exit application
         /// </summary>
@@ -259,6 +274,7 @@ namespace Assignment6
                 return; //Do nothing
             }
         }
+
         /// <summary>
         /// Changes currently selected <see cref="Task"/> in listview
         /// </summary>
@@ -281,23 +297,28 @@ namespace Assignment6
             Assignment6.Classes.Task taskCopy = new Assignment6.Classes.Task(TaskManager.GetTask(id)); //Make a local copy of Task
 
             //Create new form and show it
-            FormEdit formEdit = new FormEdit(taskCopy);
-
-            formEdit.ShowDialog();
-
-            //Handle form closing
-            if (formEdit.DialogResult == DialogResult.OK)
+            using (FormEdit formEdit = new FormEdit(taskCopy))
             {
-                TaskManager.ChangeTask(formEdit.TaskCopy);
-                UpdateListView();
-                UpdateFileMenu();
-                UpdateButtons();
-            }
-            else
-            {
-                //Nothing for now...
+                //Set position relative to main form
+                formEdit.StartPosition = FormStartPosition.Manual;
+                formEdit.Location = new Point(this.Location.X + 20, this.Location.Y + 15);
+                formEdit.ShowDialog();
+
+                //Handle form closing
+                if (formEdit.DialogResult == DialogResult.OK)
+                {
+                    TaskManager.ChangeTask(formEdit.TaskCopy);
+                    UpdateListView();
+                    UpdateFileMenu();
+                    UpdateButtons();
+                }
+                else
+                {
+                    //Nothing for now...
+                }
             }
         }
+
         /// <summary>
         /// Update File menu
         /// </summary>
@@ -314,6 +335,7 @@ namespace Assignment6
                 printToolStripMenuItem.Enabled = false;
             }
         }
+
         /// <summary>
         /// Update button status in the GUI
         /// </summary>
@@ -330,6 +352,7 @@ namespace Assignment6
                 btnDelete.Enabled = false;
             }
         }
+
         /// <summary>
         /// Update button status when selected index changes in listview
         /// </summary>
@@ -339,6 +362,7 @@ namespace Assignment6
         {
             UpdateButtons();
         }
+
         /// <summary>
         /// Enable/Disable Add button depending on if description textbox is empty or not
         /// </summary>
@@ -355,6 +379,7 @@ namespace Assignment6
                 btnAddTask.Enabled = false;
             }
         }
+
         /// <summary>
         /// Delete selected <see cref="Task"/> in the listview
         /// </summary>
@@ -389,6 +414,7 @@ namespace Assignment6
                 return; //Do nothing
             }
         }
+
         /// <summary>
         /// Save a file to disk
         /// </summary>
@@ -434,6 +460,7 @@ namespace Assignment6
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
         /// <summary>
         /// Read a file from disk
         /// </summary>
@@ -480,6 +507,7 @@ namespace Assignment6
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
         /// <summary>
         /// Reset GUI to startup state
         /// </summary>
@@ -497,6 +525,7 @@ namespace Assignment6
                 return; //Do nothing
             }
         }
+
         /// <summary>
         /// Open FormEdit on double click in listview
         /// </summary>
@@ -506,15 +535,17 @@ namespace Assignment6
         {
             btnChange_Click(sender, e);
         }
+
         /// <summary>
         /// Update MinDate property continuously to make it near impossible to enter a date and time that has already passed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer2_Tick(object sender, EventArgs e)
+        private void updateMinDateTimer_Tick(object sender, EventArgs e)
         {
             dateTimePicker1.MinDate = DateTime.Now;
         }
+
         /// <summary>
         /// Print current TaskList
         /// </summary>

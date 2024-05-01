@@ -13,12 +13,14 @@ namespace Assignment6.Classes
     public class TaskId
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of task id, of type <see cref="Guid"/>
         /// </summary>
         private Guid _id;
         #endregion
         #region Properties
+
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_id"/>
         /// </summary>
@@ -29,12 +31,14 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default Id constructor, creates an intance of <see cref="Classes.TaskId"/> with default values
         /// </summary>
         public TaskId() : this(Guid.NewGuid())
         {
         }
+
         /// <summary>
         /// Id constructor, creates an intance of <see cref="Classes.TaskId"/> with a specific <see cref="Guid"/> as parameter
         /// </summary>
@@ -45,6 +49,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Overridden Methods
+
         /// <summary>
         /// Overridden method for printing task id to a <see cref="string"/>
         /// </summary>

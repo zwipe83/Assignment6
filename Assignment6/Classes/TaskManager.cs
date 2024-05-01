@@ -12,12 +12,14 @@ namespace Assignment6.Classes
     internal class TaskManager
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of task list, of type <see cref="List{Task}"/>
         /// </summary>
         private List<Task> _taskList;
         #endregion
         #region Properties
+
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_taskList"/>
         /// </summary>
@@ -27,6 +29,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default TaskManager constructor, creates an intance of <see cref="TaskManager"/> with default values
         /// </summary>
@@ -34,6 +37,7 @@ namespace Assignment6.Classes
         {
             _taskList = new List<Task>();
         }
+
         /// <summary>
         /// Copy constructor. Copies from one instance of <see cref="TaskManager"/> to a new instance of <see cref="TaskManager"/>
         /// </summary>
@@ -43,6 +47,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Public Methods
+
         /// <summary>
         /// Methods adds a new task of type <see cref="Task"/> to <see cref="TaskManager.TaskList"/>
         /// </summary>
@@ -56,6 +61,7 @@ namespace Assignment6.Classes
 
             TaskList.Add(newTask);
         }
+
         /// <summary>
         /// Methods changes an existing task of type <see cref="Task"/> in <see cref="TaskManager.TaskList"/>
         /// </summary>
@@ -69,6 +75,7 @@ namespace Assignment6.Classes
                 TaskList[index] = editTask;
             }
         }
+
         /// <summary>
         /// Methods deletes a task of type <see cref="Task"/> from <see cref="TaskManager.TaskList"/>
         /// </summary>
@@ -82,6 +89,7 @@ namespace Assignment6.Classes
                 TaskList.RemoveAt(index);
             }
         }
+
         /// <summary>
         /// Methods finds a specific task of type <see cref="Task"/> from <see cref="TaskManager.TaskList"/>, using a specific <see cref="Task.Id"/>
         /// </summary>
@@ -99,6 +107,7 @@ namespace Assignment6.Classes
 
             return null;
         }
+
         /// <summary>
         /// Method saves current <see cref="TaskList"/> to provided file of type <see cref="File"/>
         /// </summary>
@@ -123,6 +132,7 @@ namespace Assignment6.Classes
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
         /// <summary>
         /// Method reads to current <see cref="TaskList"/> from provided file of type <see cref="File"/>
         /// </summary>
@@ -149,6 +159,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Overridden Methods
+
         /// <summary>
         /// Overridden method for printing task list to a <see cref="string"/>
         /// </summary>

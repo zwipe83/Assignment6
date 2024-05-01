@@ -16,6 +16,7 @@ namespace Assignment6.Helpers
     internal class EnumHelper
     {
         #region Public Static Methods
+
         /// <summary>
         /// Get description from provided enum value
         /// </summary>

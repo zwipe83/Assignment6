@@ -13,12 +13,14 @@ namespace Assignment6.Classes
     public class TaskDate
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of task date, of type <see cref="DateTime"/>
         /// </summary>
         private DateTime _date;
         #endregion
         #region Properties
+
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_date"/>
         /// </summary>
@@ -29,12 +31,14 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default Date constructor, creates an intance of <see cref="Classes.TaskDate"/> with default values
         /// </summary>
         public TaskDate() : this(new DateTime())
         {
         }
+
         /// <summary>
         /// Date constructor, creates an intance of <see cref="Classes.TaskDate"/> with a specific <see cref="DateTime"/> as parameter
         /// </summary>
@@ -45,6 +49,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Overridden Methods
+
         /// <summary>
         /// Overridden method for printing task date to a <see cref="string"/>
         /// </summary>

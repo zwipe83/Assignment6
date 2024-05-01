@@ -14,12 +14,14 @@ namespace Assignment6.Forms
     public partial class FormEdit : Form
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of task copy, of type <see cref="Task"/>
         /// </summary>
         private Assignment6.Classes.Task _taskCopy;
         #endregion
         #region Properties
+
         /// <summary>
         /// Property for getting value to private field <see cref="_taskCopy"/>
         /// </summary>
@@ -29,12 +31,14 @@ namespace Assignment6.Forms
         }
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default constuctor
         /// </summary>
         public FormEdit() : this(new Assignment6.Classes.Task())
         {
         }
+
         /// <summary>
         /// Constructor with a specific <see cref="Task"/> as parameter
         /// </summary>
@@ -49,6 +53,7 @@ namespace Assignment6.Forms
         }
         #endregion
         #region Private Methods
+
         /// <summary>
         /// Initialize GUI
         /// </summary>
@@ -63,6 +68,7 @@ namespace Assignment6.Forms
 
             InitDateTimePicker();
         }
+
         /// <summary>
         /// Init Combobox
         /// </summary>
@@ -78,7 +84,7 @@ namespace Assignment6.Forms
         /// </summary>
         private void InitDateTimePicker()
         {
-            dateTimePicker1.CustomFormat = "yyyy-MM-dd    HH:mm:ss";
+            dateTimePicker1.CustomFormat = "yyyy-MM-dd    HH:mm";
 
             DateTime date = TaskCopy.Date.Date;
             TimeSpan time = TaskCopy.Time.Time;
@@ -104,6 +110,7 @@ namespace Assignment6.Forms
 
             return priorityDescriptions;
         }
+
         /// <summary>
         /// Set priority descriptions to provided <see cref="ComboBox"/>
         /// </summary>
@@ -113,6 +120,7 @@ namespace Assignment6.Forms
         {
             comboBox.DataSource = priorityDescriptions;
         }
+
         /// <summary>
         /// Save changes to task copy of type <see cref="Task"/>
         /// </summary>
@@ -137,14 +145,25 @@ namespace Assignment6.Forms
                 return; //Do nothing
             }
         }
+
         /// <summary>
         /// Update MinDate property continuously to make it near impossible to enter a date and time that has already passed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer2_Tick(object sender, EventArgs e)
+        private void updateMinDateTimer_Tick(object sender, EventArgs e)
         {
             dateTimePicker1.MinDate = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Close window without saving
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCloseEdit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
     }

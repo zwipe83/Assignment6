@@ -15,16 +15,19 @@ namespace Assignment6.Classes
     internal class FileManager
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of app token, of type <see cref="string"/>. A unique identifier to check file was saved by this application
         /// </summary>
         private const string appToken = "ToDo2024";
+
         /// <summary>
         /// Field for storing of file version, of type <see cref="double"/>
         /// </summary>
-        private const double fileVersion = 1.0;
+        private const double fileVersion = 1.1;
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default FileManager constructor, creates an intance of <see cref="FileManager"/> with default values
         /// </summary>
@@ -33,6 +36,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Public Methods
+
         /// <summary>
         /// Method for saving the contents of a <see cref="List{Task}"/> to a <see cref="File"/>. List contains instances of <see cref="Task"/>
         /// </summary>
@@ -58,7 +62,6 @@ namespace Assignment6.Classes
                     writer.WriteLine(taskList[i].Date.Date.Day);
                     writer.WriteLine(taskList[i].Time.Time.Hours);
                     writer.WriteLine(taskList[i].Time.Time.Minutes);
-                    writer.WriteLine(taskList[i].Time.Time.Seconds);
                     writer.WriteLine(taskList[i].Priority.Priority.ToString());
                     writer.WriteLine(taskList[i].Description.Description);
                 }
@@ -77,6 +80,7 @@ namespace Assignment6.Classes
             }
             return ok; //FIXED: Add message if it was success or not.
         }
+
         /// <summary>
         /// Method for reading the contents of a <see cref="File"/> and storing the read data to a <see cref="Task"/> instance. Instances are then stored in provided <see cref="List{Task}"/>
         /// </summary>
@@ -119,9 +123,8 @@ namespace Assignment6.Classes
                         bool d = int.TryParse(reader.ReadLine(), out day);
                         bool h = int.TryParse(reader.ReadLine(), out hour);
                         bool mi = int.TryParse(reader.ReadLine(), out minute);
-                        bool s = int.TryParse(reader.ReadLine(), out second);
 
-                        if (!(y || mo || d || h || mi || s)) //Failed to extract proper date data, try next one
+                        if (!(y || mo || d || h || mi)) //Failed to extract proper date data, try next one
                             continue;
 
                         string priority = reader.ReadLine() ?? "Normal";

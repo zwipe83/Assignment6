@@ -53,9 +53,9 @@
             btnChange = new Button();
             btnDelete = new Button();
             lblTimer = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
+            updateClockTimer = new System.Windows.Forms.Timer(components);
             toolTip1 = new ToolTip(components);
-            timer2 = new System.Windows.Forms.Timer(components);
+            updateMinDateTimer = new System.Windows.Forms.Timer(components);
             menuStrip1.SuspendLayout();
             grpTaskList.SuspendLayout();
             SuspendLayout();
@@ -142,7 +142,7 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Size = new Size(116, 22);
             aboutToolStripMenuItem.Text = "About...";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
@@ -272,11 +272,11 @@
             lblTimer.Text = "00:00:00";
             lblTimer.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // timer1
+            // updateClockTimer
             // 
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
+            updateClockTimer.Enabled = true;
+            updateClockTimer.Interval = 1000;
+            updateClockTimer.Tick += updateClockTimer_Tick;
             // 
             // toolTip1
             // 
@@ -284,11 +284,11 @@
             toolTip1.ShowAlways = true;
             toolTip1.UseAnimation = false;
             // 
-            // timer2
+            // updateMinDateTimer
             // 
-            timer2.Enabled = true;
-            timer2.Interval = 60000;
-            timer2.Tick += timer2_Tick;
+            updateMinDateTimer.Enabled = true;
+            updateMinDateTimer.Interval = 60000;
+            updateMinDateTimer.Tick += updateMinDateTimer_Tick;
             // 
             // FormMain
             // 
@@ -307,6 +307,7 @@
             Controls.Add(lblPriority);
             Controls.Add(lblDateAndTime);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
             Name = "FormMain";
             Text = "Reminder application by Samuel Jeffman";
@@ -338,12 +339,12 @@
         private Button btnChange;
         private Button btnDelete;
         private Label lblTimer;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer updateClockTimer;
         private ToolTip toolTip1;
         private ToolStripMenuItem newToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer updateMinDateTimer;
         private ToolStripMenuItem printToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator3;
     }

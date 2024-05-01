@@ -13,12 +13,14 @@ namespace Assignment6.Classes
     public class TaskDescription
     {
         #region Fields
+
         /// <summary>
         /// Field for storing of task description, of type <see cref="string"/>
         /// </summary>
         private string _description;
         #endregion
         #region Properties
+
         /// <summary>
         /// Property for getting and setting value to private field <see cref="_description"/>
         /// </summary>
@@ -39,12 +41,14 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Constructors
+
         /// <summary>
         /// Default Description constructor, creates an intance of <see cref="Classes.TaskDescription"/> with default values
         /// </summary>
         public TaskDescription() : this(string.Empty)
         {
         }
+
         /// <summary>
         /// Description constructor, creates an intance of <see cref="Classes.TaskDescription"/> with a specific <see cref="string"/> as parameter
         /// </summary>
@@ -55,6 +59,7 @@ namespace Assignment6.Classes
         }
         #endregion
         #region Overridden Methods
+
         /// <summary>
         /// Overridden method for printing task description to a <see cref="string"/>
         /// </summary>
